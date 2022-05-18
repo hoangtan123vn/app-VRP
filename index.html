@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <title>Add Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="stylesheet" type="text/css" href="./header.css" />
+    <script type="module" src="./index.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  
+  </head>
+  <body>
+    <div id="header">
+      <ul id="nav">
+          <li><a id="title" href="#">VRP</a></li>
+          <li>
+            <a id="hello" href="#">HELLO</a></li>
+          <li>
+            <a id="logout" href="#">Log out</a>
+          </li>
+      </ul>
+    </div>
+
+
+    <div id="floating-panel">
+      <div>
+        <h2>APP ĐỊNH TUYẾN CHO TÀI XẾ</h2>
+      </div>
+      <div>
+        <div id="create-shipment">
+          <p>Add Shipments</p>
+          <input type="text" id="shipments" placeholder="Add Shipments">
+        </div>
+      </div>
+
+        <div>
+          <div id="create-depot">
+            <p>Add depot</p>
+            <input type="text" id="depot" placeholder="Add Depot">
+          </div>
+        </div>
+
+        <div>
+          <div id="create-vehicle">
+            <p>Add Vehicles</p>
+            <input id="optimize_vehicles" style="max-width: 80px" type="number" min="1" max="10" value="3">
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <div id="draw-direction">
+              <button id="button-draw" type="button">Draw</button>
+            </div>
+          </div>
+        </div>
+
+
+        
+        <div>
+          <div>
+            <div>
+              <button id="button-optimize" type="button">Optimize Route</button>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <table id="table-routes" class="table">
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Address</th>
+                <th>Demand</th>
+                <th>Vehicle</th> 
+                <th>Color</th> 
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <!-- <tr>
+                <td>1</td>
+                <td>109/12 Huỳnh Thị Hai,Quận 12,TPHCM</td>
+                <td>25</td>
+                <td>1</td>
+                <td style ="background-color: gr"></td>
+              </tr> -->
+
+
+            </tbody>
+          </table>
+        </div>
+        
+
+
+
+    </div>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+
+    <!-- 
+     The `defer` attribute causes the callback to execute after the full HTML
+     document has been parsed. For non-blocking uses, avoiding race conditions,
+     and consistent behavior across browsers, consider loading using Promises
+     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+    -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAYnXN3D4gy-VBMdLJUN7gK_FLdvWAebrE&callback=initMap&v=weekly"
+      defer
+    ></script>
+  </body>
+</html>

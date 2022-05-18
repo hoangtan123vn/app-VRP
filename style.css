@@ -1,0 +1,220 @@
+#map {
+    height: 860px;
+    /* The height is 400 pixels */
+    position: relative;
+    width: 1400px;
+    left: 25px;
+    margin-top: 60px;
+    /* The width is the width of the web page */
+  }
+
+#floating-panel{
+  float: left;
+  margin-top: 10px;
+}
+#create-shipment{
+  padding-top: 10px;
+  padding-left: 15px;
+  width: 60px;
+}
+
+#create-depot{
+  padding-top: 10px;
+  padding-left: 15px;
+}
+
+#create-vehicle{
+  padding-top: 10px;
+  padding-left: 15px;
+}
+
+#shipments{
+  width: 350px;
+  height: 35px;
+  font-size: 15px;
+  font-family: monospace;
+}
+
+#depot{
+  width: 350px;
+  height: 35px;
+  font-size: 15px;
+  font-family: monospace;
+}
+
+#button-draw{
+  margin-top: 20px;
+  width: 80px;
+  margin-left: 15px;
+  font-family: monospace;
+  height: 30px;
+  font-size: 15px;
+  background-color: #009879;
+}
+
+#button-optimize{
+  margin-top: 10px;
+  width: 150px;
+  margin-left: 15px;
+  font-family: monospace;
+  height: 30px;
+  font-size: 15px;
+  background-color: #009879;
+}
+
+
+:root {
+  --bg1: #9b59b6;
+  --bg2: #3498db;
+  --text: #26ade4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+p{
+  width: 150px;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom right, var(--bg1), var(--bg2));
+}
+#form-login {
+  height: 500px;
+  width: 300px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 40px 30px;
+}
+#form-login h1 {
+  margin-bottom: 40px;
+}
+#form-login button {
+  height: 35px;
+  width: 100%;
+  margin-bottom: 30px;
+  background: linear-gradient(120deg, var(--bg1), var(--bg2), var(--bg1));
+  border: none;
+  background-size: 200%;
+  color: #fff;
+  border-radius: 5px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+#form-login button:hover {
+  background-position: right;
+}
+.form-username {
+  margin-bottom: 40px;
+  position: relative;
+  width: 100%;
+  height: 35px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  cursor: pointer;
+  padding-left: 20px;
+}
+.form-password {
+  margin-bottom: 40px;
+  position: relative;
+  width: 100%;
+  height: 35px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  cursor: pointer;
+  padding-left: 20px;
+}
+.form-button {
+  margin-bottom: 40px;
+  position: relative;
+}
+#icon-xe {
+  display: block;
+  max-width:230px;
+  max-height:95px;
+  width: auto;
+  height: auto;
+  padding-left: 95px;
+}
+
+.table{
+  display: block;
+  border-collapse: collapse;
+  margin : 30px 15px;
+  font-size: 0.5cm;
+  min-width: 250px;
+  overflow-y: auto;
+  height: 530px;
+  border: 1px solid black;
+}
+
+.table th{
+  min-width: 25px;
+  margin :0px 25px;
+  background-color: #009879;
+  text-align: left;
+  height : 50px;
+  padding: 10px;
+  border: 1px solid black;
+}
+.table tr{
+  text-align: center;
+  background-color: #f3f3f3;
+  border: 2px solid #009879;
+  font-size: 15px;
+  border: 1px solid black;
+}
+.table tr:last-of-type{
+  border-bottom: 2px solid #009879;
+}
+
+.table td{
+  width: 10px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+#title{
+  float: left;
+}
+
+#logout{
+  float: right;
+}
+
+#hello{
+  float: left;
+}
+
+h2{
+  margin-left: 15px;
+}
+
+body{
+  font-family: monospace;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,3 @@
-import axios from "axios";
-
 axios.defaults.baseURL = 'http://localhost:2711/api/auth/';
 
 axios.interceptors.response.use(resp=>resp,async error =>{

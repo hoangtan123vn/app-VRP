@@ -1,0 +1,40 @@
+#header{
+    position: fixed;
+    height: 46px;
+    background-color: #009879;
+    top:0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#nav{
+    display: inline-block;
+}
+#nav ,.subnav{
+    list-style-type: none;
+}
+#nav >li{
+    display:inline-block;
+    position: relative; 
+}
+
+#nav > li > a{
+    color:white;
+}
+
+#nav li:hover .subnav{
+    display: block;
+}
+
+#nav li a {
+    text-decoration:none;
+    line-height: 46px;
+    padding: 0 24px;
+    display:inline-block;
+}
+#nav >li:hover> a {
+    color: white;
+    background-color: black;
+}
