@@ -49,7 +49,7 @@
   font-family: monospace;
   height: 30px;
   font-size: 15px;
-  background-color: #009879;
+  background-color: #26ade4;
 }
 
 #button-optimize{
@@ -59,7 +59,7 @@
   font-family: monospace;
   height: 30px;
   font-size: 15px;
-  background-color: #009879;
+  background-color: #26ade4;
 }
 
 
@@ -166,7 +166,7 @@ p{
 .table th{
   min-width: 25px;
   margin :0px 25px;
-  background-color: #009879;
+  background-color: #26ade4;
   text-align: left;
   height : 50px;
   padding: 10px;
@@ -175,12 +175,12 @@ p{
 .table tr{
   text-align: center;
   background-color: #f3f3f3;
-  border: 2px solid #009879;
+  border: 2px solid #26ade4;
   font-size: 15px;
   border: 1px solid black;
 }
 .table tr:last-of-type{
-  border-bottom: 2px solid #009879;
+  border-bottom: 2px solid #26ade4;
 }
 
 .table td{
@@ -189,17 +189,17 @@ p{
   word-wrap: break-word;
 }
 
-#title{
+/* #title{
   float: left;
 }
 
 #logout{
-  float: right;
+  float: left;
 }
 
 #hello{
   float: left;
-}
+}  */
 
 h2{
   margin-left: 15px;
