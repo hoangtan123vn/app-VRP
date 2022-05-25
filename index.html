@@ -2,12 +2,11 @@
   <head>
     <title>Add Map</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <link rel="stylesheet" type="text/css" href="./header.css" />
     <script type="module" src="./index.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  
+
   </head>
   <body>
     <!-- Begin Nav -->
@@ -18,7 +17,7 @@
             <ul class="subnav">
               <li><a href="">Profile</a></li>
               <li><a href="">Name</a></li>
-              <li><a id="logout" href="./login.html">LOG Out</a></li>
+              <li><a id="logout" href="./login.html">LOG OUT</a></li>
           </ul>
           </li>
           <li><a id="logout" href="./login.html">LOG OUT</a></li>
@@ -43,6 +42,13 @@
             <input type="text" id="depot" placeholder="Add Depot">
           </div>
         </div>
+
+        <div id="save-container">
+          <button  id="btn-save" type="button">Lưu</button>
+          <button  id="btn-del" type="button">Xoá</button>
+          <button  id="btn-fix" type="button">Sửa</button>
+        </div>
+
 
         <div>
           <div id="create-vehicle">
@@ -112,5 +118,11 @@
       src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAYnXN3D4gy-VBMdLJUN7gK_FLdvWAebrE&callback=initMap&v=weekly"
       defer
     ></script>
+    <div class="footer">
+      <p>Hướng dẫn sử dụng</p>
+      
+    </div>
   </body>
+
+ 
 </html>

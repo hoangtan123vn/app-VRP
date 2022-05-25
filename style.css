@@ -61,8 +61,25 @@
   font-size: 15px;
   background-color: #26ade4;
 }
-
-
+#btn-save,
+#btn-del,
+#btn-fix{
+  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  width: 30px;
+  font-family: monospace;
+  background-color: #26ade4;
+  font-size: 15px;
+}
+#button-draw:hover,
+#button-optimize:hover,
+#btn-save:hover,
+#btn-del:hover,
+#btn-fix:hover{
+  background-color: #9b59b6;
+  cursor: pointer;
+}
 :root {
   --bg1: #9b59b6;
   --bg2: #3498db;
@@ -207,6 +224,16 @@ h2{
 
 body{
   font-family: monospace;
+}
+.footer {
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #26ade4;
+  color: #fff;
+  text-align: center;
+  height: 30%;
 }
 
 
