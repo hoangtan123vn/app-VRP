@@ -16,11 +16,13 @@
   padding-top: 10px;
   padding-left: 15px;
   width: 60px;
+  margin-top: 10px;
 }
 
 #create-depot{
   padding-top: 10px;
   padding-left: 15px;
+  margin-top: 15px;
 }
 
 #create-vehicle{
@@ -61,22 +63,19 @@
   font-size: 15px;
   background-color: #26ade4;
 }
-#btn-save,
-#btn-del,
-#btn-fix{
+
+#btn-del{
   margin-top: 10px;
-  margin-bottom: 15px;
-  margin-left: 15px;
-  width: 30px;
+  height: 35px;
+  width: 50px;
   font-family: monospace;
   background-color: #26ade4;
   font-size: 15px;
+  border-radius:20%;
 }
 #button-draw:hover,
 #button-optimize:hover,
-#btn-save:hover,
-#btn-del:hover,
-#btn-fix:hover{
+#btn-del:hover{
   background-color: #9b59b6;
   cursor: pointer;
 }
@@ -226,7 +225,6 @@ body{
   font-family: monospace;
 }
 .footer {
-
   left: 0;
   bottom: 0;
   width: 100%;

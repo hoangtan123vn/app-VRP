@@ -142,6 +142,7 @@
     const location_customer = { address : place.formatted_address,lat: place.geometry.location.lat(), lng: place.geometry.location.lng(), demand : Math.floor(Math.random() * 50) + 1 };
 
     const customer = new google.maps.Marker({
+      
       position: location_customer,
       map: map,
       icon:{
@@ -162,7 +163,6 @@
 
   });
 });
-
 
 
   //ADD MARKER DEPOT
@@ -230,6 +230,8 @@
 
 
 }
+
+
 
 function calculateAndDisplayRoute(directionsService, directionsRenderer,org,destination) {
   directionsService
@@ -472,4 +474,4 @@ function m_get_directions_route (request,polylineoptns,service,delayFactor) {
 
  window.initMap = initMap;
  //window.eqfeed_callback = eqfeed_callback;
- 
+
