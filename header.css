@@ -23,7 +23,6 @@
 
 #nav>li>a {
   color: #fff;
-  text-transform: uppercase;
 }
 
 #nav li a {
@@ -31,7 +30,7 @@
   line-height: 46px;
   padding: 0 24px;
   color: #fff;
-  display: inline-block;
+  display: block;
 }
 
 #nav,
@@ -54,6 +53,7 @@
   color: #000;
   padding: 0 12px;
   line-height: 38px;
+  width : 154.39px;
 }
 
 #nav .subnav {

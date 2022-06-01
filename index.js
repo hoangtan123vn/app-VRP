@@ -324,6 +324,7 @@ function OptimizeRoute(Node,Depot,token,NumberofVehicles){
     // }
 
     const tableBody = document.getElementById('table-body');
+    const tableVehicle = document.getElementById('table-vehicle');
     for (var i = 0; i < posts.length; i++) {
     if(posts[i].cost > 0){
     const randomColor = Math.floor(Math.random()*16777215).toString(16);
@@ -333,6 +334,16 @@ function OptimizeRoute(Node,Depot,token,NumberofVehicles){
       strokeColor: '#'+ randomColor, 
       map: map,
     };
+
+    const tr1 = document.createElement('tr');
+        const content1 = `<td>${posts[i].id_vehicle}</td>
+        <td>${posts[i].loading}</td>
+        <td>${posts[i].capacity}</td>
+        <td>${posts[i].cost}</td>
+        <td>${posts[i].nodes.length}</td>
+        <td  style="background-color: #${randomColor}"></td>`;
+        tr1.innerHTML = content1;
+        tableVehicle.appendChild(tr1)
       for(let j= 0;j<posts[i].nodes.length;j++){
         const tr = document.createElement('tr');
         const content = `<td>${posts[i].nodes[j].id_customer}</td>
