@@ -163,8 +163,7 @@
 
   });
 });
-
-
+               
   //ADD MARKER DEPOT
   const Depot = []
   autocomplete1.addListener('place_changed', function() {

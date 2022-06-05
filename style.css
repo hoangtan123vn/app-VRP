@@ -8,10 +8,11 @@
   /* The width is the width of the web page */
 }
 
-#floating-panel{
+/* #floating-panel{
   float: left;
   margin-top: 10px;
-}
+  width: auto;
+} */
 #create-shipment{
   padding-top: 10px;
   padding-left: 15px;
@@ -43,6 +44,15 @@
   font-size: 15px;
   font-family: monospace;
 }
+#btn-select, 
+#btn-cancel{
+  margin-top: 10px;
+  width: 80px;
+  font-family: monospace;
+  height: 30px;
+  font-size: 15px;
+  background-color: #26ade4;
+}
 
 #button-draw{
   margin-top: 20px;
@@ -64,15 +74,8 @@
   background-color: #26ade4;
 }
 
-#btn-del{
-  margin-top: 10px;
-  height: 35px;
-  width: 50px;
-  font-family: monospace;
-  background-color: #26ade4;
-  font-size: 15px;
-  border-radius:20%;
-}
+#btn-select:hover, 
+#btn-cancel:hover,
 #button-draw:hover,
 #button-optimize:hover,
 #btn-del:hover{
@@ -174,9 +177,11 @@ p{
   margin : 30px 15px;
   font-size: 0.5cm;
   min-width: 250px;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   height: 400px;
   border: 1px solid black;
+  display: block;
+  overflow: scroll;
 }
 
 
@@ -188,6 +193,7 @@ p{
   height : 50px;
   padding: 10px;
   border: 1px solid black;
+  
 }
 .table tr{
   text-align: center;
