@@ -58,7 +58,7 @@
           <div>
             <div>
               <div id="draw-direction">
-                <button id="button-draw" type="button">Draw</button>
+                <button class="button-optimize" type="button">Draw</button>
               </div>
             </div>
           </div>
@@ -68,11 +68,19 @@
           <div>
             <div>
               <div>
-                <button id="button-optimize" type="button">Optimize Route</button>
+                <button class="button-optimize" type="button">Optimize Route</button>
               </div>
             </div>
           </div>
-  
+          
+          <div>
+            <div>
+              <div>
+                <button class="button-optimize" type="button">Update Route</button>
+              </div>
+            </div>
+          </div>
+
           <div>
             <table id="table-routes" class="table">
               <thead>
@@ -110,6 +118,10 @@
     </div>
     <!--The div element for the map -->
     <div id="map"></div>
+    <div id="refresh">
+      <input id="refreshmap" type="button" value="Refresh" />
+    </div>
+    
 
 
     <!-- 

@@ -4,13 +4,11 @@
 //  const depot = { lat: 10.7797855, lng: 106.6990189 };
 
  function initMap() {
-
+  
   var directionsService = new google.maps.DirectionsService();
   var directionsRenderer = new google.maps.DirectionsRenderer();
   // const diemdi = "Nhà Thờ Đức Bà";
   // const diemden = "Dinh Độc Lập"
-  const nodes = []
-  
   
   
   //INITMAP
@@ -27,6 +25,7 @@
     var destination = document.getElementById("depot").value
     calculateAndDisplayRoute(directionsService, directionsRenderer,org,destination);
   };
+  
 
 
 
@@ -121,12 +120,12 @@
 
   // }
 
-
    //SEARCHBOX
    var input_customers = document.getElementById("shipments");
    var input_depot = document.getElementById("depot");
    var autocomplete = new google.maps.places.Autocomplete(input_customers);
    var autocomplete1 = new google.maps.places.Autocomplete(input_depot);
+   const Depot = []
    const Node = []
 
 
@@ -166,7 +165,7 @@
 
 
   //ADD MARKER DEPOT
-  const Depot = []
+  
   autocomplete1.addListener('place_changed', function() {
     var place = autocomplete1.getPlace();
     console.log(place.LatLng);
@@ -477,10 +476,13 @@ function m_get_directions_route (request,polylineoptns,service,delayFactor) {
           console.log("Route: " + status);
       }
   });
-} 
- 
+}
 
+ function refreshmap(){
+    location.reload();
+ }
 
+ document.getElementById("refreshmap").addEventListener("click",refreshmap) 
 
 
  window.initMap = initMap;
