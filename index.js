@@ -127,19 +127,20 @@
    var autocomplete1 = new google.maps.places.Autocomplete(input_depot);
    const Depot = []
    const Node = []
-
+   var i=1;
 
    //ADD MARKER CUSTOMER
    autocomplete.addListener('place_changed', function() {
     var place = autocomplete.getPlace();
+    
     // console.log(place)
     if (!place.geometry) {
       window.alert("Autocomplete's returned place contains no geometry");
       return;
     }
-
-    const location_customer = { address : place.formatted_address,lat: place.geometry.location.lat(), lng: place.geometry.location.lng(), demand : Math.floor(Math.random() * 50) + 1 };
-
+    const location_customer = {address : place.formatted_address,lat: place.geometry.location.lat(), lng: place.geometry.location.lng(), demand : Math.floor(Math.random() * 50) + 1 };
+    AddCustomer(location_customer,i);
+    console.log(i);
     const customer = new google.maps.Marker({
       
       position: location_customer,
@@ -158,9 +159,8 @@
 
     google.maps.event.addListener(customer, "click", () => {
       infomarker.open(map, customer);
-
-
   });
+  i++;    
 });
 
 
@@ -183,6 +183,7 @@
         scaledSize: new google.maps.Size(50,50)
       }
     });
+    disableFunction()
 
     Depot.push(location_depot)
     console.log(Depot)
@@ -483,6 +484,42 @@ function m_get_directions_route (request,polylineoptns,service,delayFactor) {
  }
 
  document.getElementById("refreshmap").addEventListener("click",refreshmap) 
+
+
+ function AddCustomer(location_customer,i){
+   const table_customer = document.getElementById('table-customer');
+   var address = location_customer.address;
+   var lat = location_customer.lat;
+   var lng = location_customer.lng;
+   var demand = location_customer.demand;
+
+   const tr1 = document.createElement('tr');
+   const content1 = `
+   <td>${i}</td>
+   <td>${address}</td>
+   <td>${lat}</td>
+   <td>${lng}</td>
+   <td>${demand}</td>`;
+   tr1.innerHTML = content1;
+   table_customer.appendChild(tr1)
+ }
+
+    var beo = document.getElementById("depot");
+    function disableFunction() {
+    document.getElementById("depot").disabled = true;
+    console.log("thanh cong")
+    }
+    function ableFunction() {
+        document.getElementById("depot").disabled = false;
+    }
+
+    // document.getElementById("btn-select").addEventListener("click",disableFunction) 
+    document.getElementById("btn-cancel").addEventListener("click",ableFunction) 
+
+
+
+
+
 
 
  window.initMap = initMap;
