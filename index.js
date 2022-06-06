@@ -162,8 +162,7 @@
   });
   i++;    
 });
-
-
+               
   //ADD MARKER DEPOT
   
   autocomplete1.addListener('place_changed', function() {
