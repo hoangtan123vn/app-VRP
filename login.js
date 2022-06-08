@@ -1,7 +1,4 @@
 const ButtonLogin = document.getElementById("login")
-
-
-
 const sendHttpRequest = (method,url,data) => {
     return fetch(url,{
         method : method,
@@ -20,9 +17,6 @@ const sendHttpRequest = (method,url,data) => {
    
         
 }
-
-
-
 
 // const getData = () =>{
 //     sendHttpRequest('GET','http://localhost')

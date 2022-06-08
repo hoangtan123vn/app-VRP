@@ -8,11 +8,11 @@
   /* The width is the width of the web page */
 }
 
-/* #floating-panel{
+#floating-panel{
   float: left;
   margin-top: 10px;
   width: auto;
-} */
+}
 #create-shipment{
   padding-top: 10px;
   padding-left: 15px;
@@ -44,16 +44,6 @@
   font-size: 15px;
   font-family: monospace;
 }
-#btn-select, 
-#btn-cancel{
-  margin-top: 10px;
-  width: 80px;
-  font-family: monospace;
-  height: 30px;
-  font-size: 15px;
-  background-color: #26ade4;
-}
-
 .button{
   margin-top: 10px;
   width: 150px;
@@ -62,16 +52,6 @@
   height: 30px;
   font-size: 15px;
   background-color: #26ade4;
-}
-
-#btn-del{
-  margin-top: 10px;
-  height: 35px;
-  width: 50px;
-  font-family: monospace;
-  background-color: #26ade4;
-  font-size: 15px;
-  border-radius:20%;
 }
 
 .button:hover,
@@ -103,14 +83,38 @@ p{
 
 .container {
   display: flex;
-  justify-content: center;
+  justify-content:end;
   align-items: center;
   text-align: center;
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw;
+  height: 100vh; */
   background: linear-gradient(to bottom right, var(--bg1), var(--bg2));
 }
+#form-info{
+  
+  margin-right: 10%;
+  height: 600px;
+  width: 500px;
+  border-radius: 10px;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 40px 30px;
+}
+.ten{
+  text-align: start;
+  margin-top: 20px;
+}
+.thai{
+  position: absolute;
+  text-align: center;
+  left: 45%;
+}
+.tan{
+  position:absolute;
+  text-align: center;
+}
 #form-login {
+  margin-right: 5%;
   height: 500px;
   width: 300px;
   background: #fff;
@@ -119,6 +123,7 @@ p{
 }
 #form-login h1 {
   margin-bottom: 40px;
+  font-family: 'Times New Roman', Times, serif;
 }
 #form-login button {
   height: 35px;
@@ -336,7 +341,6 @@ body{
   height: 500px;
 } 
 
-#btn-select, 
 #btn-cancel{
   margin-top: 10px;
   width: 80px;
@@ -346,18 +350,38 @@ body{
   background-color: #26ade4;
 }
 
-#btn-select:hover, 
-#btn-cancel:hover,
-#btn-del:hover{
+#btn-cancel:hover
+{
   background-color: #9b59b6;
   cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
+#ava-thai{
+  display: block;
+  position: relative;
+  max-width:250px;
+  height: 150px;
+  padding-left: 28px;
+}
+#ava-tan{
+  display: block;
+  position: relative;
+  max-width:250px;
+  width: 120px;
+  height: 150px;
+  padding-left: 25px;
+}
+.gvhd{
+  position: fixed;
+  display: block;
+  position: relative;
+  margin-top: 50%;
+  text-align: start;
+  
+}
+#logo-sgu{
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
