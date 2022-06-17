@@ -234,14 +234,6 @@ p{
 body{
   font-family: monospace;
 }
-.footer {
-  height: 400px;
-  /* The height is 400 pixels */
-  position: relative;
-  width: 1450px;
-  left: 480px;
-  background-color: #26ade4;
-}
 
 #table-vehicle {
   display: block;
@@ -384,4 +376,33 @@ body{
   height: 100px;
   border-radius: 50px;
   margin-bottom: 20px;
+}
+.footer {
+  height: 400px;
+  /* The height is 400 pixels */
+  position: relative;
+  width: 1000px;
+  left: 480px;
+  background-color: #26ade4;
+  display: flex;
+}
+  .box{
+    box-sizing: border-box;
+    width: 500px;
+    flex-grow: 1;
+  }
+.instruction-container{
+  order: 0;
+  box-sizing: border-box;
+  flex-shrink: 1;
+  background-color: pink;
+  width: 500px;
+  
+}
+.info-us{
+order: 1;
+flex-shrink: 1;
+ background-color: red;
+ box-sizing: border-box;
+ width: 500px;
 }
