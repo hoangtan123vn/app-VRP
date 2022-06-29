@@ -7,6 +7,10 @@
     <script type="module" src="./index.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <script src="https://kit.fontawesome.com/5535073e18.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
   </head>
   <body>
     <!-- Begin Nav -->
@@ -31,7 +35,7 @@
       <a href="#" class="w3-bar-item w3-button">Link 3</a> -->
       <div id="floating-panel">
         <div>
-          <h2 id="tieude">APP ĐỊNH TUYẾN CHO TÀI XẾ</h2>
+          <h2 id="tieude">VEHICLE ROUTING PROBLEM APP</h2>
         </div>
         <div>
           <div id="create-shipment">
@@ -49,13 +53,16 @@
             
           </div>
 
-         
+
           <div>
-            <div id="create-vehicle">
-              <p>Add Vehicles</p>
-              <input id="optimize_vehicles" style="max-width: 80px" type="number" min="1" max="10" value="3">
+            <div>
+              <select name="cars" id="cars">
+                <option id="100">Xe tải nhỏ 100kg</option>
+                <option id="500">Xe tải lớn 500kg</option>
+              </select>
             </div>
           </div>
+
   
           <div>
             <div>
@@ -64,9 +71,8 @@
               </div>
             </div>
           </div>
-  
-  
-          
+
+        
           <div>
             <div>
               <div>
@@ -74,14 +80,7 @@
               </div>
             </div>
           </div>
-          
-          <div>
-            <div>
-              <div>
-                <button id="update-optimize" class="button" type="button">Update Route</button>
-              </div>
-            </div>
-          </div>
+
 
           <div>
             <table id="table-routes" class="table">
@@ -100,7 +99,7 @@
           </div>
   
           <div>
-            <table id="table-vehicle">
+            <table id="table-vehicle" class="table">
               <thead>
                 <tr>
                   <th>Vehicle</th>
@@ -118,6 +117,7 @@
   
       </div>
     </div>
+    <div class="vl"></div>
     <!--The div element for the map -->
     <div id="map"></div>
     <div id="refresh">
@@ -134,9 +134,9 @@
             <tr>
               <th>Customer</th>
               <th>Address</th>
-              <th>Lng</th>
-              <th>Lat</th>
-              <th>Demand</th>
+              <th class="lng">Lng</th>
+              <th class="lat">Lat</th>
+              <th class="demand">Demand</th>
             </tr>
           </thead>
           <tbody id="table-customer">
@@ -147,12 +147,33 @@
   
       <div id="div2">
         <h2 class="tieude1">List Driver</h2>
+        <div>
+          <div class="button-driver">
+            <div class="button-refresh-status">
+              <button id="refresh-status" class="button1" type="button">Refresh Status Driver</button>
+            </div>
+
+            <div class="button-search-driver">
+              <button id="search-driver" class="button1" type="button"><i id="icon2" class="fas fa-search"></i></i></button>
+            </div>
+
+            <div class="button-refresh-driver">
+              <button id="refresh-driver" class="button1" type="button"><i id="icon2" class="far fa-redo"></i></button>
+            </div>
+
+            <div class="button-add-driver">
+              <button id="add-driver" class="button1" type="button"><i id="icon2" class="fas fa-address-book"></i></button>
+            </div>
+          </div>
+        </div>
         <table id="list-driver" class="table">
           <thead>
             <tr>
               <th>id</th>
-              <th>Name</th>
+              <th>username</th>
+              <th>Fullname</th>
               <th>Age</th>
+              <th>Phonenumber</th>
               <th>Capacity</th>
               <th>Cost</th>
               <th>Loading</th>
@@ -163,6 +184,8 @@
           </tbody>
         </table>
       </div>
+
+      
     </div>
     <!-- LIST CUSTOMER -->
     
@@ -176,11 +199,11 @@
      with https://www.npmjs.com/package/@googlemaps/js-api-loader.
     -->
     <script
-      src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDfyXlkWHmm2XWJkfpAJ_tlzgPdxY_oUVM&callback=initMap&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCkyruhKSYxXABYVzFEHLpehHBbDmdHVfU&callback=initMap&v=weekly"
       defer
     ></script>
   </body>
-  <div class="footer">
+  <!-- <div class="footer">
     <div class="instruction-container">
      <h1> Instruction </h1>
      <p>Step 1: </p>
@@ -188,6 +211,6 @@
     <div class="info-us">
       <h1>About Us</h1>
     </div>
-  </div>
+  </div> -->
  
 </html>

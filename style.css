@@ -7,11 +7,9 @@
   margin-top: 60px;
   /* The width is the width of the web page */
 }
-
 #floating-panel{
   float: left;
   margin-top: 10px;
-  width: auto;
 }
 #create-shipment{
   padding-top: 10px;
@@ -74,44 +72,20 @@
 a {
   text-decoration: none;
 }
-
 p{
   width: 150px;
   margin-bottom: 5px;
   font-size: 15px;
 }
-
 .container {
+
   display: flex;
-  justify-content:end;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  /* width: 100vw;
-  height: 100vh; */
+  width: 100vw;
+  height: 100vh;
   background: linear-gradient(to bottom right, var(--bg1), var(--bg2));
-}
-#form-info{
-  
-  margin-right: 10%;
-  height: 600px;
-  width: 500px;
-  border-radius: 10px;
-  justify-content: flex-start;
-  text-align: center;
-  padding: 40px 30px;
-}
-.ten{
-  text-align: start;
-  margin-top: 20px;
-}
-.thai{
-  position: absolute;
-  text-align: center;
-  left: 45%;
-}
-.tan{
-  position:absolute;
-  text-align: center;
 }
 #form-login {
   margin-right: 5%;
@@ -190,7 +164,6 @@ p{
   min-width: 25px;
   margin :0px 25px;
   background-color: #26ade4;
-  text-align: left;
   height : 50px;
   padding: 10px;
   border: 1px solid black;
@@ -211,6 +184,7 @@ p{
   width: 10px;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  border: 1px solid black;
 }
 
 /* #title{
@@ -292,8 +266,21 @@ body{
 
 #list-customer{
   position: relative;
-  width: 380px;
+  width: 499px;
+  overflow-y: scroll;
+  /* min-width: 482px; */
 }
+
+.lng{
+  width: 92.3px;
+}
+.lat{
+  width: 101.83px;
+}
+.demand{
+  width: 90.48px;
+}
+
 
 .tieude{
   position: relative;
@@ -307,7 +294,7 @@ body{
 
 #list-driver{
   position: relative;
-  width: 470px;
+  width: 764px;
 }
 
 /* #div2{
@@ -323,13 +310,13 @@ body{
 
 #div2{
   float: right;
-  width: 550px;
+  width: 650px;
 }
 
 #detail{
   position: relative;
   left: 480px;
-  width: 1050px;
+  width: 1200px;
   height: 500px;
 } 
 
@@ -406,3 +393,97 @@ flex-shrink: 1;
  box-sizing: border-box;
  width: 500px;
 }
+
+#refresh-status{
+  width: 200px;
+}
+
+.vl {
+  border-left: 6px solid #26ade4;
+  height: 1500px;
+  position: absolute;
+  left: 483px;
+  top: 0;
+}
+
+#table-routes{
+  overflow-y: scroll;
+  width: 448px;
+}
+
+.button-driver{
+  width: 450px;
+  height: 30px;
+}
+
+.button-refresh-status{
+  width: 200px;
+  float: left;
+  margin-bottom: 10px;
+}
+
+.button-refresh-driver{
+  width: 50px;
+  height: 30px;
+  float: left;
+  margin-left: 15px;
+}
+.button-search-driver{
+  width: 50px;
+  height: 30px;
+  float: left;
+  margin-left: 15px;
+}
+.button-add-driver{
+  width: 50px;
+  height: 30px;
+  float: left;
+  margin-left: 15px;
+}
+
+#refresh-driver{
+  width: 50px;
+  height: 30px;
+}
+
+#add-driver{
+  width: 50px;
+  height: 30px;
+}
+
+.btn{
+  width: 50px;
+  height: 30px;
+  float : right;
+  margin-top: 10px;
+}
+
+#icon2{
+  font-weight: 600;
+}
+
+#search-driver{
+  width: 50px;
+  height: 30px;
+}
+
+.button1{
+  margin-top: 10px;
+  font-family: monospace;
+  height: 30px;
+  font-size: 15px;
+  background-color: #26ade4;
+  margin-left: 15px;
+}
+.button1:hover
+{
+  background-color: #9b59b6;
+  cursor: pointer;
+}
+
+#cars{
+  margin-left: 15px;
+  margin-top: 15px;
+  height: 30px;
+}
+

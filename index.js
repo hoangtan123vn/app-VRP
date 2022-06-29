@@ -140,9 +140,7 @@
     }
     const location_customer = {address : place.formatted_address,lat: place.geometry.location.lat(), lng: place.geometry.location.lng(), demand : Math.floor(Math.random() * 50) + 1 };
     AddCustomer(location_customer,i);
-    console.log(i);
-    const customer = new google.maps.Marker({
-      
+    const customer = new google.maps.Marker({     
       position: location_customer,
       map: map,
       icon:{
@@ -151,7 +149,9 @@
       }
     });
 
+    //UPDATE CUSTOMER 
     Node.push(location_customer);
+  
 
     const infomarker = new google.maps.InfoWindow({ 
       content: "<p>"+place.formatted_address +"  "+ place.geometry.location.lat() + " "+place.geometry.location.lng() + "</p>",
@@ -212,6 +212,7 @@
      });
    }
  };*/
+   const tableDriver = document.getElementById('table-driver')
    const token = localStorage.getItem('accessToken')
    axios.get("http://localhost:2711/api/auth/userinfo",{
       headers:{
@@ -220,17 +221,58 @@
     }).then(responseData =>{
       document.getElementById('hello').innerHTML = "Hello " + responseData.data.username
     }) 
+    //GET DRIVER DETAILS
+  function driverDetails(){
+  axios.get("http://localhost:2711/api/auth/users",{
+    headers:{
+      'Authorization' : `Bearer ${token}`
+    }
+  }).then(responseData=>{
+    console.log(responseData.data.length)
+    for(let i=0;i<responseData.data.length;i++){
+      var color = "red"
+      var trangthai = "Available"
+      if(responseData.data[i].role.name_role == "USER"){
+         if(responseData.data[i].vehicle.status == 0){
+           color = "green"
+           trangthai = "Available"
+         }
+         else if(responseData.data[i].vehicle.status == 1){
+          color = "red"
+          trangthai = "Have a routes"
+         }
+      const tr2 = document.createElement('tr');
+      const contentDriver = `<td>${responseData.data[i].vehicle.id_vehicle}</td>
+      <td>${responseData.data[i].username}</td>
+      <td>${responseData.data[i].fullname}</td>
+      <td>${responseData.data[i].age}</td>
+      <td>${responseData.data[i].phonenumber}</td>
+      <td>${responseData.data[i].vehicle.capacity}</td>
+      <td>${responseData.data[i].vehicle.cost}</td>
+      <td>${responseData.data[i].vehicle.loading}</td>
+      <td  style="background-color: ${color}">${trangthai}</td>`
+      tr2.innerHTML = contentDriver;
+      tableDriver.appendChild(tr2)
+      }
+    }
+  })
+}
+    driverDetails();
+
     
     const OptimizeClick = function () {
-      const NumberofVehicles = document.getElementById("optimize_vehicles").value;
-      OptimizeRoute(Node,Depot,token,NumberofVehicles)
+      var select = document.getElementById("cars");
+      var option = select.options[select.selectedIndex];
+      var Capacity = option.id;
+     // console("truoc",updateNode)
+      OptimizeRoute(Node,Depot,token,Capacity)
     };
+    
     document.getElementById("button-optimize").addEventListener('click',OptimizeClick)
 
 
+
 }
-
-
 
 function calculateAndDisplayRoute(directionsService, directionsRenderer,org,destination) {
   directionsService
@@ -259,11 +301,14 @@ function dangxuat(){
 
 
 
-function OptimizeRoute(Node,Depot,token,NumberofVehicles){
+function OptimizeRoute(Node,Depot,token,Capacity){
   const posts = []
   var delayFactor = 0;
   var path = new google.maps.MVCArray();
   var service = new google.maps.DirectionsService();
+  // var ListColor = {
+  //   red,fuchsia,green,blue,yellow,violet,pink,orange
+  // }
   //ROUTING
   
   
@@ -271,7 +316,7 @@ function OptimizeRoute(Node,Depot,token,NumberofVehicles){
   axios.post("http://localhost:2711/api/localsearch/add/location",{
     Node,
     Depot,
-    NumberofVehicles
+    Capacity
   },
     {
       headers:{
@@ -282,50 +327,23 @@ function OptimizeRoute(Node,Depot,token,NumberofVehicles){
       for(let key in responseData.data){
         posts.push({...responseData.data[key],id:key})
       }
-    // console.log(posts)
-    // var iterrator = posts.values();
-    //  for(let i=0;i<posts.length;i++){
-    //       if(posts[i].cost > 0){
-    //         child_nodes.push(posts[i].id_vehicle)
-    //         child_nodes.push(posts[i].nodes)
-    //          for(let j=0;j<child_nodes[i].length;j++){
-    //           var data = child_nodes[i][j]
-    //           var myLatlng = new google.maps.LatLng(data.lat, data.lng);
-    //           lat_lng.push(myLatlng);
-    //          }
-    //       }       
-    //  }
-
-   // const tableBody = document.getElementById('table-body');
-    //  for(let i=0;i<posts.length;i++){
-    //       if(posts[i].cost > 0){
-    //           for(let j=0;j<posts[i].nodes.length;j++){
-    //             const tr = document.createElement('tr');
-    //             const content = `<td>${posts[i].nodes[j].id_customer}</td>
-    //             <td>${posts[i].nodes[j].address}</td>
-    //             <td>${posts[i].nodes[j].demand}</td>
-    //             <td>${posts[i].id_vehicle}</td>`;
-
-    //             tr.innerHTML = content;
-    //             tableBody.appendChild(tr)
-    //           }
-    //       }       
-    //  }
 
 
-    //  for (var i = 0; i < posts.length; i++) {
-    //   for(let j= 0;j<posts[i].nodes.length;j++){
-    //     if ((j + 1) < posts[i].nodes.length) {
-    //         var src = posts[i].nodes[j]
-    //         var des = posts[i].nodes[j+1];
-    //     }
-    //   }
-    // }
 
     const tableBody = document.getElementById('table-body');
-    const tableVehicle = document.getElementById('table-vehicle');
+    const tableVehicle = document.getElementById('table-body-vehicle');
+    tableBody.innerHTML = "";
+    tableVehicle.innerHTML = "";
     for (var i = 0; i < posts.length; i++) {
     if(posts[i].cost > 0){
+    var dem = 0;
+    for(var j = 0;j<posts[i].nodes.length;j++){
+        if(posts[i].nodes[j].id_customer != 0){
+          dem++;
+        }
+    }
+    console.log(dem)
+    console.log(posts[i].nodes)
     const randomColor = Math.floor(Math.random()*16777215).toString(16);
     var polylineoptns = {
       strokeOpacity: 0.8,
@@ -339,7 +357,7 @@ function OptimizeRoute(Node,Depot,token,NumberofVehicles){
         <td>${posts[i].loading}</td>
         <td>${posts[i].capacity}</td>
         <td>${posts[i].cost}</td>
-        <td>${posts[i].nodes.length}</td>
+        <td>${dem}</td>
         <td  style="background-color: #${randomColor}"></td>`;
         tr1.innerHTML = content1;
         tableVehicle.appendChild(tr1)
@@ -366,15 +384,45 @@ function OptimizeRoute(Node,Depot,token,NumberofVehicles){
       }
       
   }
+
 }
-
-
-
-
-
-
-
-
+const tableDriver = document.getElementById('table-driver')
+axios.get("http://localhost:2711/api/auth/users",{
+  headers:{
+    'Authorization' : `Bearer ${token}`
+  }
+}).then(responseData=>{
+  tableDriver.innerHTML = "";
+  // const tr3 = document.createElement('tr');
+  // tr3.innerHTML = "";
+  // tableDriver.appendChild(tr3)
+  for(let i=0;i<responseData.data.length;i++){
+    var color = "red"
+    var trangthai = "Available"
+    if(responseData.data[i].role.name_role == "USER"){
+       if(responseData.data[i].vehicle.status == 0){
+         color = "green"
+         trangthai = "Available"
+       }
+       else if(responseData.data[i].vehicle.status == 1){
+        color = "red"
+        trangthai = "Have a routes"
+       }
+    const tr2 = document.createElement('tr');
+    const contentDriver = `<td>${responseData.data[i].vehicle.id_vehicle}</td>
+    <td>${responseData.data[i].username}</td>
+    <td>${responseData.data[i].fullname}</td>
+    <td>${responseData.data[i].age}</td>
+    <td>${responseData.data[i].phonenumber}</td>
+    <td>${responseData.data[i].vehicle.capacity}</td>
+    <td>${responseData.data[i].vehicle.cost}</td>
+    <td>${responseData.data[i].vehicle.loading}</td>
+    <td  style="background-color: ${color}">${trangthai}</td>`
+    tr2.innerHTML = contentDriver;
+    tableDriver.appendChild(tr2)
+    }
+  }
+})
 
      //console.log("hehe",posts)
 
@@ -448,6 +496,7 @@ function OptimizeRoute(Node,Depot,token,NumberofVehicles){
     }).catch(error =>{
       console.log(error)
     })
+    // driverDetails();
   }
  
 
@@ -503,6 +552,116 @@ function m_get_directions_route (request,polylineoptns,service,delayFactor) {
    table_customer.appendChild(tr1)
  }
 
+
+ //REFRESH STATUS DRIVER
+ function RefreshDriver(){
+  const tableDriver = document.getElementById('table-driver')
+  const token = localStorage.getItem('accessToken')
+  axios.post("http://localhost:2711/api/auth/refresh",{
+  }
+  ,{
+    headers:{
+        'Authorization': `Bearer ${token}`,
+        'Content-Type' : 'application/json'
+    }
+  }).then(responseData =>{
+    console.log(responseData)
+    tableDriver.innerHTML = "";
+    // const tr3 = document.createElement('tr');
+    // tr3.innerHTML = "";
+    // tableDriver.appendChild(tr3)
+    for(let i=0;i<responseData.data.length;i++){
+      var color = "red"
+      var trangthai = "Available"
+      if(responseData.data[i].role.name_role == "USER"){
+         if(responseData.data[i].vehicle.status == 0){
+           color = "green"
+           trangthai = "Available"
+         }
+         else if(responseData.data[i].vehicle.status == 1){
+          color = "red"
+          trangthai = "Have a routes"
+         }
+      const tr2 = document.createElement('tr');
+      const contentDriver = `<td>${responseData.data[i].vehicle.id_vehicle}</td>
+      <td>${responseData.data[i].username}</td>
+      <td>${responseData.data[i].fullname}</td>
+      <td>${responseData.data[i].age}</td>
+      <td>${responseData.data[i].phonenumber}</td>
+      <td>${responseData.data[i].vehicle.capacity}</td>
+      <td>${responseData.data[i].vehicle.cost}</td>
+      <td>${responseData.data[i].vehicle.loading}</td>
+      <td  style="background-color: ${color}">${trangthai}</td>`
+      tr2.innerHTML = contentDriver;
+      tableDriver.appendChild(tr2)
+      }
+    }
+  })
+
+
+  //var table = $('#list-driver').DataTable();
+  // const token = localStorage.getItem('accessToken')
+  // $.ajax({
+  //   method:'POST',
+  //   url:'http://localhost:2711/api/auth/refresh',
+  //   headers :{
+  //     'Authorization': `Bearer ${token}`
+  //   },
+  //   success:function(response){
+  //     console.log(response)
+  //   }
+  // })
+  // $( "#list-driver" ).load( "index.html #list-driver" );
+ }
+
+ function SearchDriver(){
+    var table = $('#list-driver').DataTable();
+ }
+ function RefreshTable(){
+  const token = localStorage.getItem('accessToken')
+  const tableDriver = document.getElementById('table-driver')
+  axios.get("http://localhost:2711/api/auth/users",{
+    headers:{
+      'Authorization' : `Bearer ${token}`
+    }
+  }).then(responseData=>{
+    console.log(responseData.data.length)
+    tableDriver.innerHTML = "";
+    for(let i=0;i<responseData.data.length;i++){
+      var color = "red"
+      var trangthai = "Available"
+      if(responseData.data[i].role.name_role == "USER"){
+         if(responseData.data[i].vehicle.status == 0){
+           color = "green"
+           trangthai = "Available"
+         }
+         else if(responseData.data[i].vehicle.status == 1){
+          color = "red"
+          trangthai = "Have a routes"
+         }
+      const tr2 = document.createElement('tr');
+      const contentDriver = `<td>${responseData.data[i].vehicle.id_vehicle}</td>
+      <td>${responseData.data[i].username}</td>
+      <td>${responseData.data[i].fullname}</td>
+      <td>${responseData.data[i].age}</td>
+      <td>${responseData.data[i].phonenumber}</td>
+      <td>${responseData.data[i].vehicle.capacity}</td>
+      <td>${responseData.data[i].vehicle.cost}</td>
+      <td>${responseData.data[i].vehicle.loading}</td>
+      <td  style="background-color: ${color}">${trangthai}</td>`
+      tr2.innerHTML = contentDriver;
+      tableDriver.appendChild(tr2)
+      }
+    }
+  })
+ }
+
+
+ document.getElementById("refresh-status").addEventListener("click",RefreshDriver)
+ document.getElementById("search-driver").addEventListener("click",SearchDriver)  
+ document.getElementById("refresh-driver").addEventListener("click",RefreshTable)  
+
+
     var beo = document.getElementById("depot");
     function disableFunction() {
     document.getElementById("depot").disabled = true;
@@ -514,7 +673,6 @@ function m_get_directions_route (request,polylineoptns,service,delayFactor) {
 
     // document.getElementById("btn-select").addEventListener("click",disableFunction) 
     document.getElementById("btn-cancel").addEventListener("click",ableFunction) 
-
 
 
 
