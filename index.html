@@ -4,12 +4,15 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <link rel="stylesheet" type="text/css" href="./header.css" />
+    <link rel="stylesheet" type="text/css" href="./adddriver.css" />
     <script type="module" src="./index.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
     <script src="https://kit.fontawesome.com/5535073e18.js" crossorigin="anonymous"></script>
+    <script type="module" src="./refresh.js"></script>
+    <script type="module" src="./adddriver.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
   </head>
   <body>
@@ -57,8 +60,9 @@
           <div>
             <div>
               <select name="cars" id="cars">
-                <option id="100">Xe tải nhỏ 100kg</option>
-                <option id="500">Xe tải lớn 500kg</option>
+                <option id="1">All Truck</option>
+                <option id="1000">Medium Truck</option>
+                <option id="1500">Large Truck</option>
               </select>
             </div>
           </div>
@@ -114,7 +118,7 @@
               </tbody>
             </table>
           </div>
-  
+
       </div>
     </div>
     <div class="vl"></div>
@@ -162,7 +166,7 @@
             </div>
 
             <div class="button-add-driver">
-              <button id="add-driver" class="button1" type="button"><i id="icon2" class="fas fa-address-book"></i></button>
+              <button id="add-driver" class="button1" data-modal="modalOne" type="button"><i id="icon2" class="fas fa-address-book"></i></button>
             </div>
           </div>
         </div>
@@ -184,13 +188,99 @@
           </tbody>
         </table>
       </div>
-
-      
     </div>
-    <!-- LIST CUSTOMER -->
-    
-    
 
+
+    <div id="modalOne" class="modal">
+      <div class="modal-content">
+        <div class="contact-form">
+          <a class="close">&times;</a>
+          <h1>Add A Driver Form</h1>
+          <form action="" method="POST" class="form" id="form-1">
+        <div class="contentform">
+          
+            <div class="leftcontact">
+              
+              <div class="form-group">
+                        <div class="col-md-10">
+                            <div>
+                                <img src="./ava.png"
+                                     height="130"
+                                     width="130"
+                                     style="border:solid" />
+                            </div>
+                          
+                        </div>
+                    </div>
+    
+                <div class="form-group">
+                <p>Username <span>*</span></p>
+                <span class="icon-case"><i class="fa fa-user"></i></span>
+                    <input type="text" name="username" id="username" />
+                    <div class="validation"></div>
+                    <span class="form-message"></span>
+                </div>
+    
+                <div class="form-group">
+                <p>Password <span>*</span></p>	
+                <span class="icon-case"><i class="fa fa-envelope-o"></i></span>
+                    <input type="password" name="password" id="password" />
+                    <div class="validation"></div>
+                    <span class="form-message"></span>
+                </div>
+  
+                <div class="form-group">
+                  <p>Choose Type of Vehicle <span>*</span></p>	
+                  <select name="vehicle" id="vehicle" >
+                      <option id="1" value="medium">Medium Truck</option>
+                      <option id="2" value="large">Large Truck</option>
+                    </select>
+                      <div class="validation"></div>
+                      <span class="form-message"></span>
+                  </div>
+                
+        </div>
+    
+        <div class="rightcontact">	
+    
+          <div class="form-group">
+              <p>FullName <span>*</span></p>
+              <span class="icon-case"><i class="fa fa-male"></i></span>
+                  <input type="text" name="fullname" id="fullname" />
+          <div class="validation"></div>
+          <span class="form-message"></span>
+  </div> 
+  
+                <div class="form-group">
+                <p>Age <span>*</span></p>
+                <span class="icon-case"><i class="fa fa-building-o"></i></span>
+                    <input type="text" name="age" id="age" />
+                    <div class="validation"></div>
+                    <span class="form-message"></span>
+                </div>	
+    
+                <div class="form-group">
+                <p>Phone number <span>*</span></p>	
+                <span class="icon-case"><i class="fa fa-phone"></i></span>
+                    <input type="text" name="phone" id="phone"/>
+                    <div class="validation"></div>
+                    <span class="form-message"></span>
+                </div>
+    
+                <div class="form-group">
+                <p>Adress <span>*</span></p>
+                <span class="icon-case"><i class="fa fa-info"></i></span>
+                    <input type="text" name="address" id="address" />
+                    <div class="validation"></div>
+                    <span class="form-message"></span>
+                </div>
+        </div>
+        
+        </div>
+    <button id="create-user" type="submit" class="bouton-contact">Create</button>
+    
+    </form>	
+    <!-- LIST CUSTOMER -->
 
     <!-- 
      The `defer` attribute causes the callback to execute after the full HTML

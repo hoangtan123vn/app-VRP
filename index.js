@@ -138,7 +138,7 @@
       window.alert("Autocomplete's returned place contains no geometry");
       return;
     }
-    const location_customer = {address : place.formatted_address,lat: place.geometry.location.lat(), lng: place.geometry.location.lng(), demand : Math.floor(Math.random() * 50) + 1 };
+    const location_customer = {address : place.formatted_address,lat: place.geometry.location.lat(), lng: place.geometry.location.lng(), demand : Math.floor(Math.random() * 500) + 1 };
     AddCustomer(location_customer,i);
     const customer = new google.maps.Marker({     
       position: location_customer,
@@ -567,9 +567,6 @@ function m_get_directions_route (request,polylineoptns,service,delayFactor) {
   }).then(responseData =>{
     console.log(responseData)
     tableDriver.innerHTML = "";
-    // const tr3 = document.createElement('tr');
-    // tr3.innerHTML = "";
-    // tableDriver.appendChild(tr3)
     for(let i=0;i<responseData.data.length;i++){
       var color = "red"
       var trangthai = "Available"
@@ -597,21 +594,6 @@ function m_get_directions_route (request,polylineoptns,service,delayFactor) {
       }
     }
   })
-
-
-  //var table = $('#list-driver').DataTable();
-  // const token = localStorage.getItem('accessToken')
-  // $.ajax({
-  //   method:'POST',
-  //   url:'http://localhost:2711/api/auth/refresh',
-  //   headers :{
-  //     'Authorization': `Bearer ${token}`
-  //   },
-  //   success:function(response){
-  //     console.log(response)
-  //   }
-  // })
-  // $( "#list-driver" ).load( "index.html #list-driver" );
  }
 
  function SearchDriver(){
@@ -673,10 +655,6 @@ function m_get_directions_route (request,polylineoptns,service,delayFactor) {
 
     // document.getElementById("btn-select").addEventListener("click",disableFunction) 
     document.getElementById("btn-cancel").addEventListener("click",ableFunction) 
-
-
-
-
 
 
  window.initMap = initMap;
