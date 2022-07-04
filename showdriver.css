@@ -1,4 +1,4 @@
-.modalDriver {
+#modalDriver {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -22,16 +22,20 @@
   }
   
   /* The Close Button */
-  .close {
+  .closeModal {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
   }
   
-  .close:hover,
-  .close:focus {
+  .closeModal:hover,
+  .closeModal:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  #table-driver > a:hover,
+  #table-driver > a:focus{
   }

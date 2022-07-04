@@ -1,27 +1,27 @@
 var modaldriver = document.getElementById("modalDriver")
 
-var btn = document.getElementsByClassName("fullname")
-
+// var tabledriver = document.getElementById("table-driver")
+// console.log(tabledriver.rows.length)
+// var a = tabledriver.getElementsByTagName("tr");
+// // var td = tr.getElementsByTagName("td")
+// //var a = tr.getElementsByTagName("a");
+// var btn = document.getElementsByClassName("fullname")
 var span = document.getElementsByClassName("close")[0]
 
-
-console.log(modaldriver)
-// console.log(btn)
-const collection = document.getElementsByTagName("a")
-for (var i = 0; i < collection.length; i++) {
-    btn[i].onclick = function() {
-        modaldriver.style.display = "block";
-    }
-  //  btn[i].addEventListener('click', showDriver);
-   // console.log(i)
-}
-
-
-// function showDriver() {
-//     modaldriver.style.display = "block";
-//     var btn = document.getElementsByClassName("fullname")
-//     console.log(btn)
+// const collection = document.getElementsByTagName("a")
+// for (var i = 0; i < collection.length; i++) {
+//     btn[i].onclick = function() {
+//         modaldriver.style.display = "block";
+//     }
+//   //  btn[i].addEventListener('click', showDriver);
+//    // console.log(i)
 // }
+
+
+function showDriver() {
+    modaldriver.style.display = "block";
+  //  var btn = document.getElementsByClassName("fullname")
+}
   
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {

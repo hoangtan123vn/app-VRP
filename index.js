@@ -250,18 +250,19 @@
           color = "red"
           trangthai = "Have a routes"
          }
-      const tr2 = document.createElement('tr');
-      const contentDriver = `<td>${responseData.data[i].vehicle.id_vehicle}</td>
-      <td>${responseData.data[i].username}</td>
-      <td><a href="#">${responseData.data[i].fullname}</a></td>
-      <td>${responseData.data[i].age}</td>
-      <td>${responseData.data[i].phonenumber}</td>
-      <td>${responseData.data[i].vehicle.capacity}</td>
-      <td>${responseData.data[i].vehicle.cost}</td>
-      <td>${responseData.data[i].vehicle.loading}</td>
-      <td  style="background-color: ${color}">${trangthai}</td>`
-      tr2.innerHTML = contentDriver;
-      tableDriver.appendChild(tr2)
+         const tr2 = document.createElement('tr');
+         tr2.addEventListener('click',showDriver)
+         const contentDriver = `<td>${responseData.data[i].vehicle.id_vehicle}</td>
+         <td>${responseData.data[i].username}</td>
+         <td>${responseData.data[i].fullname}</td>
+         <td>${responseData.data[i].age}</td>
+         <td>${responseData.data[i].phonenumber}</td>
+         <td>${responseData.data[i].vehicle.capacity}</td>
+         <td>${responseData.data[i].vehicle.cost}</td>
+         <td>${responseData.data[i].vehicle.loading}</td>
+         <td  style="background-color: ${color}">${trangthai}</td>`
+         tr2.innerHTML = contentDriver;
+         tableDriver.appendChild(tr2)
       }
     }
   })
@@ -420,18 +421,19 @@ axios.get("http://localhost:2711/api/auth/users",{
         color = "red"
         trangthai = "Have a routes"
        }
-    const tr2 = document.createElement('tr');
-    const contentDriver = `<td>${responseData.data[i].vehicle.id_vehicle}</td>
-    <td>${responseData.data[i].username}</td>
-    <td><a href="#">${responseData.data[i].fullname}</a></td>
-    <td>${responseData.data[i].age}</td>
-    <td>${responseData.data[i].phonenumber}</td>
-    <td>${responseData.data[i].vehicle.capacity}</td>
-    <td>${responseData.data[i].vehicle.cost}</td>
-    <td>${responseData.data[i].vehicle.loading}</td>
-    <td  style="background-color: ${color}">${trangthai}</td>`
-    tr2.innerHTML = contentDriver;
-    tableDriver.appendChild(tr2)
+       const tr2 = document.createElement('tr');
+       tr2.addEventListener('click',showDriver)
+       const contentDriver = `<td>${responseData.data[i].vehicle.id_vehicle}</td>
+       <td>${responseData.data[i].username}</td>
+       <td>${responseData.data[i].fullname}</td>
+       <td>${responseData.data[i].age}</td>
+       <td>${responseData.data[i].phonenumber}</td>
+       <td>${responseData.data[i].vehicle.capacity}</td>
+       <td>${responseData.data[i].vehicle.cost}</td>
+       <td>${responseData.data[i].vehicle.loading}</td>
+       <td  style="background-color: ${color}">${trangthai}</td>`
+       tr2.innerHTML = contentDriver;
+       tableDriver.appendChild(tr2)
     }
   }
 })
@@ -591,18 +593,19 @@ function m_get_directions_route (request,polylineoptns,service,delayFactor) {
           color = "red"
           trangthai = "Have a routes"
          }
-      const tr2 = document.createElement('tr');
-      const contentDriver = `<td>${responseData.data[i].vehicle.id_vehicle}</td>
-      <td>${responseData.data[i].username}</td>
-      <td><a href="#">${responseData.data[i].fullname}</a></td>
-      <td>${responseData.data[i].age}</td>
-      <td>${responseData.data[i].phonenumber}</td>
-      <td>${responseData.data[i].vehicle.capacity}</td>
-      <td>${responseData.data[i].vehicle.cost}</td>
-      <td>${responseData.data[i].vehicle.loading}</td>
-      <td  style="background-color: ${color}">${trangthai}</td>`
-      tr2.innerHTML = contentDriver;
-      tableDriver.appendChild(tr2)
+         const tr2 = document.createElement('tr');
+         tr2.addEventListener('click',showDriver)
+         const contentDriver = `<td>${responseData.data[i].vehicle.id_vehicle}</td>
+         <td>${responseData.data[i].username}</td>
+         <td>${responseData.data[i].fullname}</td>
+         <td>${responseData.data[i].age}</td>
+         <td>${responseData.data[i].phonenumber}</td>
+         <td>${responseData.data[i].vehicle.capacity}</td>
+         <td>${responseData.data[i].vehicle.cost}</td>
+         <td>${responseData.data[i].vehicle.loading}</td>
+         <td  style="background-color: ${color}">${trangthai}</td>`
+         tr2.innerHTML = contentDriver;
+         tableDriver.appendChild(tr2)
       }
     }
   })
@@ -633,18 +636,19 @@ function m_get_directions_route (request,polylineoptns,service,delayFactor) {
           color = "red"
           trangthai = "Have a routes"
          }
-      const tr2 = document.createElement('tr');
-      const contentDriver = `<td>${responseData.data[i].vehicle.id_vehicle}</td>
-      <td>${responseData.data[i].username}</td>
-      <td><a href="#">${responseData.data[i].fullname}</a></td>
-      <td>${responseData.data[i].age}</td>
-      <td>${responseData.data[i].phonenumber}</td>
-      <td>${responseData.data[i].vehicle.capacity}</td>
-      <td>${responseData.data[i].vehicle.cost}</td>
-      <td>${responseData.data[i].vehicle.loading}</td>
-      <td  style="background-color: ${color}">${trangthai}</td>`
-      tr2.innerHTML = contentDriver;
-      tableDriver.appendChild(tr2)
+         const tr2 = document.createElement('tr');
+         tr2.addEventListener('click',showDriver)
+         const contentDriver = `<td>${responseData.data[i].vehicle.id_vehicle}</td>
+         <td>${responseData.data[i].username}</td>
+         <td>${responseData.data[i].fullname}</td>
+         <td>${responseData.data[i].age}</td>
+         <td>${responseData.data[i].phonenumber}</td>
+         <td>${responseData.data[i].vehicle.capacity}</td>
+         <td>${responseData.data[i].vehicle.cost}</td>
+         <td>${responseData.data[i].vehicle.loading}</td>
+         <td  style="background-color: ${color}">${trangthai}</td>`
+         tr2.innerHTML = contentDriver;
+         tableDriver.appendChild(tr2)
       }
     }
   })
