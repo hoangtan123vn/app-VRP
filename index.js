@@ -1,7 +1,16 @@
 // Initialize and add the map
  // const uluru = { lat: 10.7797855, lng: 106.6990189 };
+ swal({
+  title:"Login Success",
+  icon: "success",
+});
+ 
+ 
  let map;
 //  const depot = { lat: 10.7797855, lng: 106.6990189 };
+
+
+
 
  function initMap() {
   
@@ -33,8 +42,8 @@
    
 
 
-  //  //MARKER
-  //  const marker = new google.maps.Marker({
+  //  MARKER
+  //  const markerdepot = new google.maps.Marker({
   //   position: depot,
   //   map: map,
   //   icon:{
@@ -48,8 +57,8 @@
   // });
 
 
-  // google.maps.event.addListener(marker, "click", () => {
-  //   infodepot.open(map, marker);
+  // google.maps.event.addListener(markerdepot, "click", () => {
+  //   infodepot.open(map, markerdepot);
   // });
 
   // //CREATE A SHIPMENTS
@@ -244,7 +253,7 @@
       const tr2 = document.createElement('tr');
       const contentDriver = `<td>${responseData.data[i].vehicle.id_vehicle}</td>
       <td>${responseData.data[i].username}</td>
-      <td>${responseData.data[i].fullname}</td>
+      <td><a href="#">${responseData.data[i].fullname}</a></td>
       <td>${responseData.data[i].age}</td>
       <td>${responseData.data[i].phonenumber}</td>
       <td>${responseData.data[i].vehicle.capacity}</td>
@@ -264,6 +273,8 @@
       var select = document.getElementById("cars");
       var option = select.options[select.selectedIndex];
       var Capacity = option.id;
+
+
      // console("truoc",updateNode)
       OptimizeRoute(Node,Depot,token,Capacity)
     };
@@ -327,6 +338,7 @@ function OptimizeRoute(Node,Depot,token,Capacity){
       for(let key in responseData.data){
         posts.push({...responseData.data[key],id:key})
       }
+      console.log(responseData)
 
 
 
@@ -338,7 +350,7 @@ function OptimizeRoute(Node,Depot,token,Capacity){
     if(posts[i].cost > 0){
     var dem = 0;
     for(var j = 0;j<posts[i].nodes.length;j++){
-        if(posts[i].nodes[j].id_customer != 0){
+        if(posts[i].nodes[j].id_node != 0){
           dem++;
         }
     }
@@ -363,7 +375,7 @@ function OptimizeRoute(Node,Depot,token,Capacity){
         tableVehicle.appendChild(tr1)
       for(let j= 0;j<posts[i].nodes.length;j++){
         const tr = document.createElement('tr');
-        const content = `<td>${posts[i].nodes[j].id_customer}</td>
+        const content = `<td>${posts[i].nodes[j].id_node}</td>
         <td>${posts[i].nodes[j].address}</td>
         <td>${posts[i].nodes[j].demand}</td>
         <td>${posts[i].id_vehicle}</td>
@@ -411,7 +423,7 @@ axios.get("http://localhost:2711/api/auth/users",{
     const tr2 = document.createElement('tr');
     const contentDriver = `<td>${responseData.data[i].vehicle.id_vehicle}</td>
     <td>${responseData.data[i].username}</td>
-    <td>${responseData.data[i].fullname}</td>
+    <td><a href="#">${responseData.data[i].fullname}</a></td>
     <td>${responseData.data[i].age}</td>
     <td>${responseData.data[i].phonenumber}</td>
     <td>${responseData.data[i].vehicle.capacity}</td>
@@ -582,7 +594,7 @@ function m_get_directions_route (request,polylineoptns,service,delayFactor) {
       const tr2 = document.createElement('tr');
       const contentDriver = `<td>${responseData.data[i].vehicle.id_vehicle}</td>
       <td>${responseData.data[i].username}</td>
-      <td>${responseData.data[i].fullname}</td>
+      <td><a href="#">${responseData.data[i].fullname}</a></td>
       <td>${responseData.data[i].age}</td>
       <td>${responseData.data[i].phonenumber}</td>
       <td>${responseData.data[i].vehicle.capacity}</td>
@@ -624,7 +636,7 @@ function m_get_directions_route (request,polylineoptns,service,delayFactor) {
       const tr2 = document.createElement('tr');
       const contentDriver = `<td>${responseData.data[i].vehicle.id_vehicle}</td>
       <td>${responseData.data[i].username}</td>
-      <td>${responseData.data[i].fullname}</td>
+      <td><a href="#">${responseData.data[i].fullname}</a></td>
       <td>${responseData.data[i].age}</td>
       <td>${responseData.data[i].phonenumber}</td>
       <td>${responseData.data[i].vehicle.capacity}</td>

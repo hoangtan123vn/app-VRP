@@ -13,7 +13,8 @@
     <script src="https://kit.fontawesome.com/5535073e18.js" crossorigin="anonymous"></script>
     <script type="module" src="./refresh.js"></script>
     <script type="module" src="./adddriver.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.19/dist/sweetalert2.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
   <body>
     <!-- Begin Nav -->
@@ -53,8 +54,17 @@
               <input type="text" id="depot" placeholder="Add Depot">
               <button id="btn-cancel" type="button">Cancel</button>
             </div>
-            
           </div>
+
+          <!-- <div>
+            <div>
+              <select name="cars" id="depots">
+                <option id="1">All Truck</option>
+                <option id="1000">Medium Truck</option>
+                <option id="1500">Large Truck </option>
+              </select>
+            </div>
+          </div> -->
 
 
           <div>
@@ -190,6 +200,15 @@
       </div>
     </div>
 
+    <!-- <div id="modalDriver" class="modal1">
+
+      <div class="modal-content1">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+      </div>
+    
+    </div> -->
+
 
     <div id="modalOne" class="modal">
       <div class="modal-content">
@@ -277,9 +296,12 @@
         </div>
         
         </div>
+
+
     <button id="create-user" type="submit" class="bouton-contact">Create</button>
     
     </form>	
+
     <!-- LIST CUSTOMER -->
 
     <!-- 
@@ -289,9 +311,12 @@
      with https://www.npmjs.com/package/@googlemaps/js-api-loader.
     -->
     <script
-      src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCkyruhKSYxXABYVzFEHLpehHBbDmdHVfU&callback=initMap&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC_JG5KwlsKmWsnUmsl3ho93iupYjB9rlk&callback=initMap&v=weekly"
       defer
     ></script>
+  </div>
+
+
   </body>
   <!-- <div class="footer">
     <div class="instruction-container">

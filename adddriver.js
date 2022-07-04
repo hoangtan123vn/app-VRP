@@ -205,6 +205,10 @@ function RegisterUser(){
         }
       }).then(responseData =>{
         console.log(responseData)
+        swal({
+            title:"Create Success",
+            icon: "success",
+          });
       })
     }
 

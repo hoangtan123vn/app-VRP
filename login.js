@@ -7,7 +7,7 @@ const sendHttpRequest = (method,url,data) => {
     })
     .then(response =>{
         if(response.status >= 400){
-            alert('Đăng nhập thất bại')
+            swal ( "Oops" ,  "Wrong Username or Password" ,  "error" )
         }
         else if(response.status == 200){
             return response.json()
@@ -30,6 +30,7 @@ const postData = () =>{
         password : matkhau,
     })
     .then(responseData=>{
+
         // if(responseData.status >= 400){
         //     alert("Đăng nhập thất bại")
         // }else if(responseData.status == 200){

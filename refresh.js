@@ -27,7 +27,7 @@ function RefreshTable(){
         const tr2 = document.createElement('tr');
         const contentDriver = `<td>${responseData.data[i].vehicle.id_vehicle}</td>
         <td>${responseData.data[i].username}</td>
-        <td>${responseData.data[i].fullname}</td>
+        <td><a class="fullname" href="#">${responseData.data[i].fullname}</a></td>
         <td>${responseData.data[i].age}</td>
         <td>${responseData.data[i].phonenumber}</td>
         <td>${responseData.data[i].vehicle.capacity}</td>
