@@ -1,7 +1,7 @@
 // Initialize and add the map
  // const uluru = { lat: 10.7797855, lng: 106.6990189 };
  swal({
-  title:"Login Success",
+  title:"Đăng nhập thành công",
   icon: "success",
 });
  

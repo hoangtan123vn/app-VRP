@@ -26,6 +26,7 @@ const postData = () =>{
     var taikhoan = document.getElementById("username").value;
     var matkhau = document.getElementById("password").value;
     sendHttpRequest('POST','http://localhost:2711/api/auth/login',{
+        // sendHttpRequest('POST','https://reqres.in/api/login',{
         username : taikhoan,
         password : matkhau,
     })

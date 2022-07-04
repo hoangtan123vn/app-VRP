@@ -206,7 +206,7 @@ function RegisterUser(){
       }).then(responseData =>{
         console.log(responseData)
         swal({
-            title:"Create Success",
+            title:"Bạn đã tạo tài xế thành công",
             icon: "success",
           });
       })

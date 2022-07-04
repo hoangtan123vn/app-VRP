@@ -14,14 +14,29 @@
 #create-shipment{
   padding-top: 10px;
   padding-left: 15px;
-  width: 60px;
+  width: 300px;
   margin-top: 10px;
+}
+
+#shipments{
+  border: 2px solid;
+}
+
+#shipments::placeholder{
+  color: red;
 }
 
 #create-depot{
   padding-top: 10px;
   padding-left: 15px;
   margin-top: 15px;
+}
+#depot{
+  border: 2px solid;
+}
+
+#depot::placeholder{
+  color: red;
 }
 
 #create-vehicle{
@@ -322,9 +337,9 @@ body{
 
 #btn-cancel{
   margin-top: 10px;
-  width: 80px;
+  width: 200px;
   font-family: monospace;
-  height: 30px;
+  height: 50px;
   font-size: 15px;
   background-color: #26ade4;
 }
@@ -396,6 +411,7 @@ flex-shrink: 1;
 
 #refresh-status{
   width: 200px;
+  height: 50px;
 }
 
 .vl {

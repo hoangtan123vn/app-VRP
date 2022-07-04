@@ -20,8 +20,8 @@
     <!-- Begin Nav -->
     <div id="header">
       <ul id="nav">
-          <li><a id="title" href="#">VEHICLE ROUTING PROBLEM</a></li>
-          <li><a id="hello" href="#">UserProfile</a>
+          <li><a id="title" href="#">Phần mềm quản lý vận chuyển</a></li>
+          <li><a id="hello" href="#">Hồ Sơ Cá Nhân</a>
             <ul class="subnav">
               <li><a href="">Hồ sơ cá nhân</a></li>
               <li><a href="">Name</a></li>
@@ -39,20 +39,20 @@
       <a href="#" class="w3-bar-item w3-button">Link 3</a> -->
       <div id="floating-panel">
         <div>
-          <h2 id="tieude">VEHICLE ROUTING PROBLEM APP</h2>
+          <h2 id="tieude">Phần mềm quản lý đội xe</h2>
         </div>
         <div>
           <div id="create-shipment">
-            <p>Add Shipments</p>
-            <input type="text" id="shipments" placeholder="Add Shipments">
+            Thêm địa chỉ khách hàng
+            <input type="text" id="shipments" class="cs-input" placeholder="Thêm địa chỉ khách hàng vào đây">
           </div>
         </div>
   
           <div>
             <div id="create-depot">
-              <p>Add depot</p>
-              <input type="text" id="depot" placeholder="Add Depot">
-              <button id="btn-cancel" type="button">Cancel</button>
+              <p>Thêm địa chỉ kho</p>
+              <input type="text" id="depot" placeholder="Thêm địa chỉ kho vào đây">
+              <button id="btn-cancel" type="button">Khởi tạo lại địa chỉ kho</button>
             </div>
           </div>
 
@@ -70,9 +70,9 @@
           <div>
             <div>
               <select name="cars" id="cars">
-                <option id="1">All Truck</option>
-                <option id="1000">Medium Truck</option>
-                <option id="1500">Large Truck</option>
+                <option id="1">Tất cả loại xe</option>
+                <option id="1000">Xe tải vừa</option>
+                <option id="1500">Xe tải lớn</option>
               </select>
             </div>
           </div>
@@ -81,7 +81,7 @@
           <div>
             <div>
               <div id="draw-direction">
-                <button id="button-draw" class="button" type="button">Draw</button>
+                <button id="button-draw" class="button" type="button">Vẽ</button>
               </div>
             </div>
           </div>
@@ -90,7 +90,7 @@
           <div>
             <div>
               <div>
-                <button id="button-optimize" class="button" type="button">Optimize Route</button>
+                <button id="button-optimize" class="button" type="button">Tạo lộ trình</button>
               </div>
             </div>
           </div>
@@ -100,11 +100,11 @@
             <table id="table-routes" class="table">
               <thead>
                 <tr>
-                  <th>Customer</th>
-                  <th>Address</th>
-                  <th>Demand</th>
-                  <th>Vehicle</th> 
-                  <th>Color</th> 
+                  <th>Khách hàng</th>
+                  <th>Địa chỉ</th>
+                  <th>Nhu cầu</th>
+                  <th>Xe</th> 
+                  <th>Màu</th> 
                 </tr>
               </thead>
               <tbody id="table-body">
@@ -116,12 +116,12 @@
             <table id="table-vehicle" class="table">
               <thead>
                 <tr>
-                  <th>Vehicle</th>
-                  <th>Loading</th>
-                  <th>Capacity</th>
-                  <th>Cost</th>
-                  <th>Size</th> 
-                  <th>Color</th> 
+                  <th>Xe</th>
+                  <th>Hành trình</th>
+                  <th>Sức chứa tối đa</th>
+                  <th>Chi phí</th>
+                  <th>Sức chứa thực tế</th> 
+                  <th>Màu</th> 
                 </tr>
               </thead>
               <tbody id="table-body-vehicle">
@@ -142,15 +142,15 @@
     
     <div id="detail">
       <div id="div1">
-        <h2 class="tieude">List Customer</h2>
+        <h2 class="tieude">Danh sách khách hàng</h2>
         <table id="list-customer" class="table">
           <thead>
             <tr>
-              <th>Customer</th>
-              <th>Address</th>
-              <th class="lng">Lng</th>
-              <th class="lat">Lat</th>
-              <th class="demand">Demand</th>
+              <th>Khách hàng</th>
+              <th>Địa chỉ</th>
+              <th class="lng">Kinh độ</th>
+              <th class="lat">Vĩ độ</th>
+              <th class="demand">Nhu cầu</th>
             </tr>
           </thead>
           <tbody id="table-customer">
@@ -160,11 +160,11 @@
   
   
       <div id="div2">
-        <h2 class="tieude1">List Driver</h2>
+        <h2 class="tieude1">Danh sách tài xế</h2>
         <div>
           <div class="button-driver">
             <div class="button-refresh-status">
-              <button id="refresh-status" class="button1" type="button">Refresh Status Driver</button>
+              <button id="refresh-status" class="button1" type="button">Cập nhật tình trạng tài xế</button>
             </div>
 
             <div class="button-search-driver">
@@ -184,14 +184,14 @@
           <thead>
             <tr>
               <th>id</th>
-              <th>username</th>
-              <th>Fullname</th>
-              <th>Age</th>
-              <th>Phonenumber</th>
-              <th>Capacity</th>
-              <th>Cost</th>
-              <th>Loading</th>
-              <th>Status</th>
+              <th>Tài khoản</th>
+              <th>Họ tên</th>
+              <th>Tuổi</th>
+              <th>SĐT</th>
+              <th>Sức chứa</th>
+              <th>Chi phí</th>
+              <th>Sức chứa thực tế</th>
+              <th>Trạng thái</th>
             </tr>
           </thead>
           <tbody id="table-driver">
@@ -233,7 +233,7 @@
                     </div>
     
                 <div class="form-group">
-                <p>Username <span>*</span></p>
+                <p>Tài khoản <span>*</span></p>
                 <span class="icon-case"><i class="fa fa-user"></i></span>
                     <input type="text" name="username" id="username" />
                     <div class="validation"></div>
@@ -241,7 +241,7 @@
                 </div>
     
                 <div class="form-group">
-                <p>Password <span>*</span></p>	
+                <p>Mật khẩu <span>*</span></p>	
                 <span class="icon-case"><i class="fa fa-envelope-o"></i></span>
                     <input type="password" name="password" id="password" />
                     <div class="validation"></div>
@@ -249,10 +249,10 @@
                 </div>
   
                 <div class="form-group">
-                  <p>Choose Type of Vehicle <span>*</span></p>	
+                  <p>Chọn loại xe <span>*</span></p>	
                   <select name="vehicle" id="vehicle" >
-                      <option id="1" value="medium">Medium Truck</option>
-                      <option id="2" value="large">Large Truck</option>
+                      <option id="1" value="medium">Xe tải vừa</option>
+                      <option id="2" value="large">Xe tải lớn</option>
                     </select>
                       <div class="validation"></div>
                       <span class="form-message"></span>
@@ -263,7 +263,7 @@
         <div class="rightcontact">	
     
           <div class="form-group">
-              <p>FullName <span>*</span></p>
+              <p>Họ tên tài xế <span>*</span></p>
               <span class="icon-case"><i class="fa fa-male"></i></span>
                   <input type="text" name="fullname" id="fullname" />
           <div class="validation"></div>
@@ -271,7 +271,7 @@
   </div> 
   
                 <div class="form-group">
-                <p>Age <span>*</span></p>
+                <p>Tuổi <span>*</span></p>
                 <span class="icon-case"><i class="fa fa-building-o"></i></span>
                     <input type="text" name="age" id="age" />
                     <div class="validation"></div>
@@ -279,7 +279,7 @@
                 </div>	
     
                 <div class="form-group">
-                <p>Phone number <span>*</span></p>	
+                <p>SĐT <span>*</span></p>	
                 <span class="icon-case"><i class="fa fa-phone"></i></span>
                     <input type="text" name="phone" id="phone"/>
                     <div class="validation"></div>
@@ -287,7 +287,7 @@
                 </div>
     
                 <div class="form-group">
-                <p>Adress <span>*</span></p>
+                <p>Địa chỉ <span>*</span></p>
                 <span class="icon-case"><i class="fa fa-info"></i></span>
                     <input type="text" name="address" id="address" />
                     <div class="validation"></div>
