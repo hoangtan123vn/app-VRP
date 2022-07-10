@@ -1,0 +1,161 @@
+/*   color variables */
+/* $clr-primary: #81d4fa;
+$clr-primary-light: #e1f5fe;
+$clr-primary-dark: #4fc3f7;
+$clr-gray100: #f9fbff;
+$clr-gray150: #f4f6fb;
+$clr-gray200: #eef1f6;
+$clr-gray300: #e1e5ee;
+$clr-gray400: #767b91;
+$clr-gray500: #4f546c;
+$clr-gray600: #2a324b;
+$clr-gray700: #161d34;
+$clr-pending: #fff0c2;
+$clr-pending-font: #a68b00;
+$clr-unpaid: #ffcdd2;
+$clr-unpaid-font: #c62828;
+$clr-paid: #c8e6c9;
+$clr-paid-font: #388e3c;
+$clr-link: #2962ff; */
+
+/*   border radius */
+/* $radius: 0.2rem; */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Mukta, sans-serif;
+  justify-content: center;
+  align-items: center;
+  color: #4f546c;
+  font-size: 0.9rem;
+  background-color: #f9fbff;
+}
+
+table {
+  border-collapse: collapse;
+  box-shadow: 0 5px 10px #e1e5ee;
+  background-color: white;
+  text-align: left;
+  margin-bottom: 50px;
+  overflow-y: auto;
+}
+
+thead {
+    box-shadow: 0 5px 10px #e1e5ee;
+}
+
+th {
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.7rem;
+    font-weight: 900;
+}
+
+td {
+    padding: 1rem 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: #2962ff;
+}
+
+.status {
+    border-radius: 0.2rem;
+    background-color: red;
+    padding: 0.2rem 1rem;
+    text-align: center;
+}
+
+.amount {
+    text-align: right;
+}
+
+tr:nth-child(even) {
+    background-color: #f4f6fb;
+  }
+
+.item4{
+    margin-top: 50px;
+    height: 100px;
+    width: 100%;
+}
+.tieude{
+    margin-left: 50px
+}
+.size-table{
+    position: absolute;
+    float:left;
+    left:100px;
+    transition: 0.45s
+}
+.size-table.active{
+    position: absolute;
+    float:left;
+    transition: 0.4s;
+    left:300px;
+}
+
+#driver-info{
+    margin-right: 30px;
+    margin-top: 25px;
+}
+
+#list-nodes-routes{
+    margin-right: 30px;
+    margin-top: 25px;
+}
+
+#list-vehicles{
+    margin-top: 40px;
+    margin-left: 55px;
+    width: 75%;
+}
+
+.size-table1{
+    float: left;
+ }
+  /* Change */
+ .size-table{
+     position: absolute;
+     float:left;
+     left:100px;
+     transition: 0.45s
+ }
+ .size-table.active{
+     position: absolute;
+     float:left;
+     transition: 0.4s;
+     left:300px;
+ }
+ 
+ #driver-info{
+     margin-right: 30px;
+     margin-top: 25px;
+     margin-left: 25px;
+ }
+ 
+ #list-nodes-routes{
+     margin-right: 30px;
+     margin-top: 25px;
+     margin-left: 25px;
+ }
+ #list_driver{
+    overflow: auto;
+    overflow-x: hidden;
+ }
+
+ .container-list{
+    position: relative;
+    height: 800px;
+    width: 1200px;
+    overflow: auto;
+  }

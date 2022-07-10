@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="../index.js"></script>
+    <script type="module" src="/pages/adddriver.js"></script>
+    <script type="module" src="/refresh.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://kit.fontawesome.com/5535073e18.js" crossorigin="anonymous"></script>
+    <!-- <script type="module" src="./refresh.js"></script>
+    <script type="module" src="./adddriver.js"></script> -->
+    <script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.19/dist/sweetalert2.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="module" src="./qlxd.js"></script>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link rel="stylesheet" type="text/css" href="/pages/qldx.css" />
+    <link rel="stylesheet" type="text/css" href="/table.css" />
+
+    <link rel="stylesheet" type="text/css" href="/pages/adddriver.css" />
+    <link rel="stylesheet" type="text/css" href="/pages/showdriver.css" />
+    <title>QLĐX</title>
+</head>
+<body onload="init()">
+    <div class="grid-container">
+  <div class="item1">
+    <div class="header"></div>
+  </div>
+  <div class="item2">
+    <div class="navigation">
+      <ul>
+          <li>
+              <a href="#">
+                  <span class="icon"><ion-icon name="car-outline"></ion-icon></span>
+                  <span class="title">Vận Chuyển</span>
+              </a>
+          </li>
+          <li>
+              <a href="../index.html">
+                  <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                  <span class="title">Trang chủ</span>
+              </a>
+          </li>
+          <li>
+              <a href="thongke.html">
+                  <span class="icon"><ion-icon name="stats-chart-outline"></ion-icon></span>
+                  <span class="title">Thống kê</span>
+              </a>
+          </li>
+          <li>
+              <a href="#">
+                  <span class="icon"><ion-icon name="car-sharp"></ion-icon></span>
+                  <span class="title">Quản Lý Đội Xe</span>
+              </a>
+          </li>
+          <li>
+              <a href="../login.html">
+                  <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                  <span class="title">Đăng Xuất</span>
+              </a>
+          </li>
+      </ul>
+        <div class="toggle"></div>
+    </div>
+  </div>
+
+
+  <div class="item3">
+    <div class="size-table">
+      <h2 class="tieude1">DANH SÁCH TÀI XẾ</h2>
+      <div>
+        <div class="button-driver">
+          <div class="button-refresh-status">
+            <button id="refresh-status" class="button1" type="button">Làm mới trạng thái</button>
+          </div>
+
+          <div class="button-search-driver">
+            <button id="search-driver" class="button1" type="button"><i id="icon2" class="fas fa-search"></i></i></button>
+          </div>
+
+          <div class="button-add-driver">
+            <button id="add-driver" class="button1" data-modal="modalOne" type="button"><i id="icon2" class="fas fa-address-book"></i></button>
+          </div>
+
+          <div class="button-add-vehicle">
+            <button id="add-vehicle" class="button1" type="button"><i id="icon2" class="fa fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="container-list">
+        <table id="list-driver" class="table">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Tài khoản</th>
+              <th>Họ tên</th>
+              <th>Tuổi</th>
+              <th>SĐT</th>
+              <th>Sức chứa</th>
+              <th>Chi phí</th>
+              <th>Sức chứa thực tế</th>
+              <th>Trạng thái</th>
+            </tr>
+          </thead>
+          <tbody id="table-driver">
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+
+
+
+    <div id="modalDriver">
+      <div class="modal-content1">
+        <span class="closeModal">&times;</span>
+        <h1>Lịch sử tuyến đường tài xế</h1>
+        <p id="nameuser"></p>
+        <table id="driver-info" class="table">
+          <thead>
+            <tr>
+              <th>Mã chuyến đi</th>
+              <th>Thời gian</th>
+              <th>Chi phí lộ trình</th>
+              <th>Sức chứa tối đa</th>
+              <th>Hành trình</th>
+              <th>Trạng thái</th>
+              <th>Mã phương tiện</th>
+              <th>Khối lượng khách hàng</th>
+            </tr>
+          </thead>
+          <tbody id="table-history-route">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="modalListNodes">
+      <div class="modal-content2">
+        <span class="closeModal1">&times;</span>
+        <h1>Lộ trình giao hàng của tài xế</h1>
+        <table id="list-nodes-routes" class="table">
+          <thead>
+            <tr>
+              <th>Mã khách hàng</th>
+              <th>Địa chỉ</th>
+              <th>Nhu cầu</th>
+            </tr>
+          </thead>
+          <tbody id="table-listnodes-route">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <div id="modalListNodes2">
+      <div class="modal-content3">
+        <span class="closeModal2">&times;</span>
+        <h1>Thêm khối lượng và xe</h1>
+
+        <div>
+          <input type="text" id="name_vehicle" placeholder="Tên phương tiện">
+        </div>
+
+        <div>
+          <input type="text" id="capacity" placeholder="Khối lượng phương tiện(kg)">
+        </div>
+        <table id="list-vehicles" class="table">
+          <thead>
+            <tr>
+              <th>Mã loại</th>
+              <th>Tên xe</th>
+              <th>Khối lượng</th>
+            </tr>
+          </thead>
+          <tbody id="table-list-vehicles">
+          </tbody>
+        </table>
+
+        <div>
+          <button id="add-driver-type">Thêm loại xe</button>
+        </div>
+      </div>
+    </div>
+
+  </div>  
+
+
+  <div id="modalOne" class="modal">
+    <div class="modal-content">
+      <div class="contact-form">
+        <a class="close">&times;</a>
+        <h1>Đăng ký tài xế mới</h1>
+        <form action="" method="POST" class="form" id="form-1">
+      <div class="contentform">
+        
+          <div class="leftcontact">
+            
+            <div class="form-group">
+                      <div class="col-md-10">
+                          <div>
+                              <img src="/image/ava.png"
+                                   height="130"
+                                   width="130"
+                                   style="border:solid" />
+                          </div>
+                        
+                      </div>
+                  </div>
+  
+              <div class="form-group">
+              <p>Tài khoản <span>*</span></p>
+              <span class="icon-case"><i class="fa fa-user"></i></span>
+                  <input type="text" name="username" id="username" />
+                  <div class="validation"></div>
+                  <span class="form-message"></span>
+              </div>
+  
+              <div class="form-group">
+              <p>Mật khẩu <span>*</span></p>	
+              <span class="icon-case"><i class="fa fa-envelope-o"></i></span>
+                  <input type="password" name="password" id="password" />
+                  <div class="validation"></div>
+                  <span class="form-message"></span>
+              </div>
+
+              <div class="form-group">
+                <p>Chọn loại xe <span>*</span></p>	
+                <select name="vehicle" id="vehicle" >
+                  </select>
+                    <div class="validation"></div>
+                    <span class="form-message"></span>
+                </div>
+              
+      </div>
+  
+      <div class="rightcontact">	
+  
+        <div class="form-group">
+            <p>Họ tên tài xế <span>*</span></p>
+            <span class="icon-case"><i class="fa fa-male"></i></span>
+                <input type="text" name="fullname" id="fullname" />
+        <div class="validation"></div>
+        <span class="form-message"></span>
+</div> 
+
+              <div class="form-group">
+              <p>Tuổi <span>*</span></p>
+              <span class="icon-case"><i class="fa fa-building-o"></i></span>
+                  <input type="text" name="age" id="age" />
+                  <div class="validation"></div>
+                  <span class="form-message"></span>
+              </div>	
+  
+              <div class="form-group">
+              <p>SĐT <span>*</span></p>	
+              <span class="icon-case"><i class="fa fa-phone"></i></span>
+                  <input type="text" name="phone" id="phone"/>
+                  <div class="validation"></div>
+                  <span class="form-message"></span>
+              </div>
+  
+              <div class="form-group">
+              <p>Địa chỉ <span>*</span></p>
+              <span class="icon-case"><i class="fa fa-info"></i></span>
+                  <input type="text" name="address" id="address" />
+                  <div class="validation"></div>
+                  <span class="form-message"></span>
+              </div>
+      </div>
+      
+      </div>
+
+
+  <button id="create-user" type="submit" class="bouton-contact">Tạo tài xế</button>
+  
+  </form>	
+</div>
+</div>
+<style>
+  .item1 { grid-area: header; }
+  .item2 { grid-area: menu; }
+  .item3 { grid-area: main; }
+  .item5 { grid-area: footer; }
+  
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      'header header header header header header'
+      'menu main main main right right'
+      'menu footer footer footer footer footer';
+    
+   
+    /* padding: 10px; */
+  }
+  
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    
+    padding: 20px 0;
+   
+  }
+  </style>
+<script>
+        let navigation = document.querySelector('.navigation');
+        let toggle = document.querySelector('.toggle');
+        let driverList = document.querySelector('.size-table');
+        toggle.onclick = function(){
+            navigation.classList.toggle('active')
+            driverList.classList.toggle('active')
+        }
+
+        var modaldriver = document.getElementById("modalDriver")
+        var span = document.getElementsByClassName("closeModal")[0] 
+        var span1 = document.getElementsByClassName("closeModal1")[0]     
+function showDriver(id_vehicle) {
+       modaldriver.style.display = "block";
+//  var btn = document.getElementsByClassName("fullname")
+      const token = localStorage.getItem('accessToken')
+      axios.get("http://localhost:2711/api/auth/vehicle/"+id_vehicle,{
+      headers:{
+          'Authorization': `Bearer ${token}`
+      }
+    }).then(responseData =>{
+      const Routes = document.getElementById('table-history-route')
+      Routes.innerHTML= "";
+      for(let i=0;i<responseData.data.length;i++){
+        var dem = 0;
+        for(var j =0 ; j<responseData.data[i].nodes.length;j++){
+          if(responseData.data[i].nodes[j].idnode != 0){
+          dem++;
+        }
+        }
+        var color = "ffcdd2"
+        var trangthai = "Đã hoàn thành"
+        if(responseData.data[i].status_route == 1){
+          color = "c8e6c9"
+          trangthai = "Đã hoàn thành"
+        }
+        else if(responseData.data[i].status_route == 0){
+          color = "ffcdd2"
+          trangthai = "Chưa hoàn thành"
+        }
+        const tr2 = document.createElement('tr');
+        const ShowNodeofRoutes = function(){
+          showListNodes(responseData.data[i].id_route)
+        }
+        tr2.addEventListener('click',ShowNodeofRoutes)
+        const contentDriver = `<td>${responseData.data[i].id_route}</td>
+        <td>${responseData.data[i].time}</td>
+        <td>${responseData.data[i].cost_route}</td>
+        <td>${responseData.data[i].capacity_route}</td>
+        <td>${responseData.data[i].loading_route}</td>
+        <td  style="background-color: #${color}">${trangthai}</td>
+        <td>${responseData.data[i].vehicle.id_vehicle}</td>
+        <td>${dem}</td>`
+
+        tr2.innerHTML = contentDriver;
+        Routes.appendChild(tr2)
+      }
+    })  
+    }
+
+
+function showListNodes(id_route){
+    modalListNodes.style.display= "block";
+    const token = localStorage.getItem('accessToken')
+    axios.get("http://localhost:2711/api/auth/gethistoryRoutes/"+id_route,{
+      headers:{
+          'Authorization': `Bearer ${token}`
+      }
+    }).then(responseData =>{
+        console.log(responseData)
+        const ListNodes = document.getElementById('table-listnodes-route')
+        ListNodes.innerHTML= "";
+        for(let i=0;i<responseData.data.nodes.length;i++){
+        const tr2 = document.createElement('tr');
+        const contentListNodes = `<td>${responseData.data.nodes[i].idnode}</td>
+        <td>${responseData.data.nodes[i].address}</td>
+        <td>${responseData.data.nodes[i].demand}</td>`
+        tr2.innerHTML = contentListNodes;
+        ListNodes.appendChild(tr2)
+      }
+    })
+    }
+
+
+    span.onclick = function() {
+    modaldriver.style.display = "none";
+    }
+
+    span1.onclick = function() {
+    modalListNodes.style.display = "none";
+  }
+
+  
+</script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+
+main{
+    min-height: 100%;
+    padding: 6rem 1rem 2rem 14rem;
+    color: black;
+}
+.item3{
+    left:150px
+
+}
+
+.button-driver{
+    width: 450px;
+    height: 30px;
+}
+
+#list-driver{
+    margin-left: 25px;
+    margin-top : 25px
+}
+
+.button-refresh-status{
+    width: 200px;
+    float: left;
+    margin-bottom: 10px;
+  }
+  
+  .button-refresh-driver{
+    width: 50px;
+    height: 30px;
+    float: left;
+    margin-left: 15px;
+  }
+  .button-search-driver{
+    width: 50px;
+    height: 30px;
+    float: left;
+    margin-left: 15px;
+  }
+  .button-add-driver{
+    width: 50px;
+    height: 30px;
+    float: left;
+    margin-left: 15px;
+  }
+  
+  #refresh-driver{
+    width: 50px;
+    height: 30px;
+    background-color: #287bff;
+    cursor: pointer;
+  }
+  
+  #add-driver{
+    width: 50px;
+    height: 30px;
+    background-color: #287bff;
+    cursor: pointer;
+  }
+  
+  .btn{
+    width: 50px;
+    height: 30px;
+    float : right;
+    margin-top: 10px;
+  }
+  
+  #icon2{
+    font-weight: 600;
+  }
+  
+  #search-driver{
+    width: 50px;
+    height: 30px;
+    background-color: #287bff;
+    cursor: pointer;
+  }
+  #refresh-status{
+    margin-left: 25px;
+    height: 30px;
+    width: 172px;
+    background-color: white;
+    font-family: Mukta, sans-serif;
+    font-size: 15px;
+  }
+  #refresh-status:hover{
+    background-color: #287bff;
+    margin-left: 25px;
+    height: 30px;
+    width: 172px;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+  }
+  .tieude1{
+    margin-left: 25px;
+    margin-bottom: 10px;
+  }
+
+  #table-driver > tr:hover,
+  #table-driver > tr:focus {
+  background-color: #287bff;
+  cursor: pointer;
+  color: white;
+  }
+  
+  #table-history-route > tr:hover,
+  #table-history-route > tr:focus {
+  background-color: #287bff;;
+  cursor: pointer;
+  color: white;
+  }
+
+  .button-add-vehicle{
+    width: 50px;
+    height: 30px;
+    float: left;
+    margin-left: 15px;
+  }
+
+  #add-vehicle{
+    width: 50px;
+    height: 30px;
+    background-color: #287bff;
+    cursor: pointer;
+  }
+  
+

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <link rel="stylesheet" type="text/css" href="/pages/thongke.css" />
+  <!-- <link rel="stylesheet" type="text/css" href="./header.css" /> -->
+  <!-- <link rel="stylesheet" type="text/css" href="./adddriver.css" /> -->
+  <script type="module" src="/chart.js"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+  <script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+  <script src="https://kit.fontawesome.com/5535073e18.js" crossorigin="anonymous"></script>
+  <!-- <script type="module" src="./refresh.js"></script>
+    <script type="module" src="./adddriver.js"></script> -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.19/dist/sweetalert2.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  
+  <title>Trang chủ</title>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="#">
+            <span class="fa fa-truck" aria-hidden="true"></i></span>
+            <span class="title">Vận Chuyển</span>
+          </a>
+        </li>
+        <li>
+          <a href="/index.html">
+            <span class="icon">
+              <ion-icon name="home-outline"></ion-icon>
+            </span>
+            <span class="title">Trang chủ</span>
+          </a>
+        </li>
+        <li>
+          <a href="/pages/thongke.html">
+            <span class="icon">
+              <ion-icon name="stats-chart-outline"></ion-icon>
+            </span>
+            <span class="title">Thống kê</span>
+          </a>
+        </li>
+        <li>
+          <a href="/pages/qldx.html">
+            <span class="icon">
+              <ion-icon name="car-sharp"></ion-icon>
+            </span>
+            <span class="title">Quản Lý Đội Xe</span>
+          </a>
+        </li>
+        <li>
+          <a href="/login.html">
+            <span class="icon">
+              <ion-icon name="log-out-outline"></ion-icon>
+            </span>
+            <span class="title">Đăng Xuất</span>
+          </a>
+        </li>
+      </ul>
+      <div class="toggle"></div>
+    </div>
+
+<!-- Main -->
+    <div class="main">
+
+  
+      <!-- ADD Chart -->
+      <div class="graphBox">
+        <div class="box">
+          <canvas id="myChart"></canvas>
+        </div>
+        <div class="box">
+          <canvas id="earning"></canvas>
+        </div>
+      </div>
+
+
+      <div class="details">
+        <div class="recentOders">
+          <div class="cardHeader">
+            <h2>Tuyến đường gần nhất</h2>
+            <a href="#" class="btnn">Xem tất cả</a>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <td>Mã tuyến đường</td>
+                <td>Phương tiện</td>
+                <td>Sức chứa</td>
+                <td>Hành trình</td>
+                <td>Chi phí</td>
+                <td>Trạng thái</td>
+              </tr>
+            </thead>
+            <tbody id="table-history-routes">
+            </tbody>
+          </table>
+        </div>
+        <div class="recentCustomers">
+          <div class="cardHeader">
+            <h2>Khách hàng gần nhất</h2>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <td>id</td>
+                <td>Địa chỉ</td>
+                <td>Nhu cầu</td>
+              </tr>
+            </thead>
+            <tbody id="table-customer">
+            </tbody>
+          </table>
+        </div>
+      </div>
+        
+    </div>
+  </div>
+
+<script src="chart.js"></script>
+
+  <script>
+    let navigation = document.querySelector('.navigation');
+    let toggle = document.querySelector('.toggle');
+    var map = document.getElementById("map");
+    let searchNode = document.querySelector('.search-box');
+    let searchDepot = document.querySelector('.search-box1');
+    let drawBtn = document.querySelector('.search-box2')
+    let comboBoxCar = document.querySelector('.cars')
+    let main = document.querySelector('.main')
+    toggle.onclick = function () {
+      navigation.classList.toggle('active')
+      main.classList.toggle('active') 
+    }
+  </script>
+</body>
+
+</html>

@@ -1,5 +1,4 @@
-
-  .info p {
+.info p {
     text-align:center;
     color: #999;
     text-transform:none;
@@ -184,7 +183,7 @@
     margin: 50px auto;
     border: 1px solid rgb(15, 12, 12);
     width: 40%;
-    background-color: #2371a0;
+    background-color: white;
   }
  
  
@@ -233,4 +232,3 @@
     border-bottom: #a99567 1px solid;
     color: #a99567;
   } */
-

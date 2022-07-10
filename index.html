@@ -1,355 +1,229 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Add Map</title>
+<head>
+   
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="stylesheet" type="text/css" href="./style.css" />
-    <link rel="stylesheet" type="text/css" href="./header.css" />
-    <link rel="stylesheet" type="text/css" href="./adddriver.css" />
-    <link rel="stylesheet" type="text/css" href="./showdriver.css" />
+    <link rel="stylesheet" type="text/css" href="./table.css" />
+    <link rel="stylesheet" type="text/css" href="./loader.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="./header.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="./adddriver.css" /> -->
     <script type="module" src="./index.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <script language="javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
     <script src="https://kit.fontawesome.com/5535073e18.js" crossorigin="anonymous"></script>
-    <script type="module" src="./refresh.js"></script>
-    <script type="module" src="./adddriver.js"></script>
-    <script type="module" src="./refresh.js"></script>
+    <!-- <script type="module" src="./refresh.js"></script> -->
+    <!-- <script type="module" src="./adddriver.js"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.19/dist/sweetalert2.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  </head>
-  <body>
-    <!-- Begin Nav -->
-    <div id="header">
-      <ul id="nav">
-          <li><a id="title" href="#">Phần mềm quản lý vận chuyển</a></li>
-          <li><a id="hello" href="#">Hồ Sơ Cá Nhân</a>
-            <ul class="subnav">
-              <li><a href="">Hồ sơ cá nhân</a></li>
-              <li><a href="">Name</a></li>
-              <li><a id="logout" href="./login.html">Đăng xuất</a></li>
-          </ul>
+    <title>Trang chủ</title>
+   
+</head>
+<body>
+<div class="grid-container">
+  <div class="item1">
+    <div class="header">
+      <div class="function"></div>
+    </div>
+  </div>
+  <div class="item2">
+    <div class="navigation">
+      <ul>
+          <li>
+              <a href="#">
+                  <span  class="fa fa-truck" aria-hidden="true"></i></span>
+                  <span class="title">Vận Chuyển</span>
+              </a>
+          </li>
+          <li>
+              <a href="#">
+                  <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                  <span class="title">Trang chủ</span>
+              </a>
+          </li>
+          <li>
+              <a href="./pages/thongke.html">
+                  <span class="icon"><ion-icon name="stats-chart-outline"></ion-icon></span>
+                  <span class="title">Thống kê</span>
+              </a>
+          </li>
+          <li>
+              <a href="./pages/qldx.html">
+                  <span class="icon"><ion-icon name="car-sharp"></ion-icon></span>
+                  <span class="title">Quản Lý Đội Xe</span>
+              </a>
+          </li>
+          <li>
+              <a href="login.html">
+                  <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                  <span class="title">Đăng Xuất</span>
+              </a>
           </li>
       </ul>
+        <div class="toggle"></div>
+    </div>
+  </div>
+  <div class="item3">
+    <div id="map"></div>
+    <div class='search-box'>
+      <input type="text" id="shipments" placeholder="Thêm địa chỉ KHÁCH HÀNG vào đây">
+      <a class="search-btn" href="#">
+        <ion-icon name="cube-outline"></ion-icon>
+      </a>
     </div>
 
+    <div class='search-box1'>
+      <input type="text" id="depot" placeholder="Thêm địa chỉ KHO vào đây">
+      <a class="search-btn1" href="#">
+        <i class="fa fa-home" aria-hidden="true"></i>
+      </a>
+    </div>
 
-    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
-      <!-- <h3 class="w3-bar-item">Menu</h3>
-      <a href="#" class="w3-bar-item w3-button">Link 1</a>
-      <a href="#" class="w3-bar-item w3-button">Link 2</a>
-      <a href="#" class="w3-bar-item w3-button">Link 3</a> -->
-      <div id="floating-panel">
-        <div>
-          <h2 id="tieude">Phần mềm quản lý đội xe</h2>
+    <div class="dropdown">
+      <select id="cars" class="cars">
+        <option id="1" value="1">Tất cả</option>
+      </select>
+    </div>
+
+    <div class='search-box2'>
+      <button name="button" id="button-optimize" class="button-optimize" type="button">
+        <i class="fa fa-truck" aria-hidden="true"></i>
+      </a>
+    </div>
+
+   
+   
+  </div> 
+    <div class="item4">
+      <div class="size-table1">
+        <h4 class="tieude1">DANH SÁCH KHÁCH HÀNG TRONG LỘ TRÌNH</h4>
+        <div class="container-table-customer">
+          <table id="table-customer">
+            <thead>
+              <tr>
+                <th>Khách hàng</th>
+                <th>Địa chỉ</th>
+                <th>Kinh độ</th>
+                <th>Vĩ độ</th>
+                <th>Nhu cầu</th>
+              </tr>
+            </thead>
+            <tbody id="body-table-customer">
+            </tbody>
+          </table>
         </div>
-        <div>
-          <div id="create-shipment">
-            Thêm địa chỉ khách hàng
-            <input type="text" id="shipments" class="cs-input" placeholder="Thêm địa chỉ khách hàng vào đây">
-          </div>
         </div>
-  
-          <div>
-            <div id="create-depot">
-              <p>Thêm địa chỉ kho</p>
-              <input type="text" id="depot" placeholder="Thêm địa chỉ kho vào đây">
-              <button id="btn-cancel" type="button">Khởi tạo lại địa chỉ kho</button>
-            </div>
-          </div>
 
-          <!-- <div>
-            <div>
-              <select name="cars" id="depots">
-                <option id="1">All Truck</option>
-                <option id="1000">Medium Truck</option>
-                <option id="1500">Large Truck </option>
-              </select>
-            </div>
-          </div> -->
-
-
-          <div>
-            <div>
-              <select name="cars" id="cars">
-                <option id="1">Tất cả loại xe</option>
-                <option id="1000">Xe tải vừa</option>
-                <option id="1500">Xe tải lớn</option>
-              </select>
-            </div>
-          </div>
-
-  
-          <div>
-            <div>
-              <div id="draw-direction">
-                <button id="button-draw" class="button" type="button">Vẽ</button>
-              </div>
-            </div>
-          </div>
-
-        
-          <div>
-            <div>
-              <div>
-                <button id="button-optimize" class="button" type="button">Tạo lộ trình</button>
-              </div>
-            </div>
-          </div>
-
-
-          <div>
-            <table id="table-routes" class="table">
+        <div>
+        <div class="size-table1">
+          <h4 class="tieude2">DANH SÁCH TUYẾN ĐƯỜNG</h4>
+          <div class="container-table-route">
+            <table id="table-route">
               <thead>
                 <tr>
                   <th>Khách hàng</th>
                   <th>Địa chỉ</th>
                   <th>Nhu cầu</th>
-                  <th>Xe</th> 
-                  <th>Màu</th> 
+                  <th>Xe</th>
+                  <th>Màu</th>
                 </tr>
               </thead>
-              <tbody id="table-body">
+              <tbody id="body-table-route">
               </tbody>
             </table>
           </div>
-  
-          <div>
-            <table id="table-vehicle" class="table">
+
+        </div>
+        </div>
+
+        <div>
+        <div class="size-table1">
+          <h4 class="tieude3">DANH SÁCH PHƯƠNG TIỆN</h4>
+          <div class="container-table-vehicle">
+            <table id="table-vehicle">
               <thead>
                 <tr>
                   <th>Xe</th>
                   <th>Hành trình</th>
                   <th>Sức chứa tối đa</th>
                   <th>Chi phí</th>
-                  <th>Sức chứa thực tế</th> 
-                  <th>Màu</th> 
+                  <th>Số lượng khách hàng</th>
+                  <th>Màu</th>
                 </tr>
               </thead>
               <tbody id="table-body-vehicle">
               </tbody>
             </table>
           </div>
-
-      </div>
-    </div>
-    <div class="vl"></div>
-    <!--The div element for the map -->
-    <div id="map"></div>
-    <div id="refresh">
-      <input id="refreshmap" type="button" value="Refresh" />
-    </div>
-    
-    
-    
-    <div id="detail">
-      <div id="div1">
-        <h2 class="tieude">Danh sách khách hàng</h2>
-        <table id="list-customer" class="table">
-          <thead>
-            <tr>
-              <th>Khách hàng</th>
-              <th>Địa chỉ</th>
-              <th class="lng">Kinh độ</th>
-              <th class="lat">Vĩ độ</th>
-              <th class="demand">Nhu cầu</th>
-            </tr>
-          </thead>
-          <tbody id="table-customer">
-          </tbody>
-        </table>
-      </div>
-  
-  
-      <div id="div2">
-        <h2 class="tieude1">Danh sách tài xế</h2>
-        <div>
-          <div class="button-driver">
-            <div class="button-refresh-status">
-              <button id="refresh-status" class="button1" type="button">Cập nhật tình trạng tài xế</button>
-            </div>
-
-            <div class="button-search-driver">
-              <button id="search-driver" class="button1" type="button"><i id="icon2" class="fas fa-search"></i></i></button>
-            </div>
-
-            <div class="button-refresh-driver">
-              <button id="refresh-driver" class="button1" type="button"><i id="icon2" class="far fa-redo"></i></button>
-            </div>
-
-            <div class="button-add-driver">
-              <button id="add-driver" class="button1" data-modal="modalOne" type="button"><i id="icon2" class="fas fa-address-book"></i></button>
-            </div>
           </div>
         </div>
-        <table id="list-driver" class="table">
-          <thead>
-            <tr>
-              <th>id</th>
-              <th>Tài khoản</th>
-              <th>Họ tên</th>
-              <th>Tuổi</th>
-              <th>SĐT</th>
-              <th>Sức chứa</th>
-              <th>Chi phí</th>
-              <th>Sức chứa thực tế</th>
-              <th>Trạng thái</th>
-            </tr>
-          </thead>
-          <tbody id="table-driver">
-          </tbody>
-        </table>
-      </div>
     </div>
-
-    <div id="modalDriver">
-      <div class="modal-content1">
-        <span class="closeModal">&times;</span>
-        <p>Some text in the Modal..</p>
-      </div>
-    </div>
-
-
-    <div id="modalOne" class="modal">
-      <div class="modal-content">
-        <div class="contact-form">
-          <a class="close">&times;</a>
-          <h1>Add A Driver Form</h1>
-          <form action="" method="POST" class="form" id="form-1">
-        <div class="contentform">
-          
-            <div class="leftcontact">
-              
-              <div class="form-group">
-                        <div class="col-md-10">
-                            <div>
-                                <img src="./ava.png"
-                                     height="130"
-                                     width="130"
-                                     style="border:solid" />
-                            </div>
-                          
-                        </div>
-                    </div>
-    
-                <div class="form-group">
-                <p>Tài khoản <span>*</span></p>
-                <span class="icon-case"><i class="fa fa-user"></i></span>
-                    <input type="text" name="username" id="username" />
-                    <div class="validation"></div>
-                    <span class="form-message"></span>
-                </div>
-    
-                <div class="form-group">
-                <p>Mật khẩu <span>*</span></p>	
-                <span class="icon-case"><i class="fa fa-envelope-o"></i></span>
-                    <input type="password" name="password" id="password" />
-                    <div class="validation"></div>
-                    <span class="form-message"></span>
-                </div>
-  
-                <div class="form-group">
-                  <p>Chọn loại xe <span>*</span></p>	
-                  <select name="vehicle" id="vehicle" >
-                      <option id="1" value="medium">Xe tải vừa</option>
-                      <option id="2" value="large">Xe tải lớn</option>
-                    </select>
-                      <div class="validation"></div>
-                      <span class="form-message"></span>
-                  </div>
-                
-        </div>
-    
-        <div class="rightcontact">	
-    
-          <div class="form-group">
-              <p>Họ tên tài xế <span>*</span></p>
-              <span class="icon-case"><i class="fa fa-male"></i></span>
-                  <input type="text" name="fullname" id="fullname" />
-          <div class="validation"></div>
-          <span class="form-message"></span>
   </div> 
   
-                <div class="form-group">
-                <p>Tuổi <span>*</span></p>
-                <span class="icon-case"><i class="fa fa-building-o"></i></span>
-                    <input type="text" name="age" id="age" />
-                    <div class="validation"></div>
-                    <span class="form-message"></span>
-                </div>	
+  
+
+<style>
+  .item1 { grid-area: header; }
+  .item2 { grid-area: menu; }
+  .item3 { grid-area: main; }
+  .item4 { grid-area: footer;}
+
+  
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      'header header header header header header'
+      'menu main main main right right'
+      'menu footer footer footer footer footer';
     
-                <div class="form-group">
-                <p>SĐT <span>*</span></p>	
-                <span class="icon-case"><i class="fa fa-phone"></i></span>
-                    <input type="text" name="phone" id="phone"/>
-                    <div class="validation"></div>
-                    <span class="form-message"></span>
-                </div>
-    
-                <div class="form-group">
-                <p>Địa chỉ <span>*</span></p>
-                <span class="icon-case"><i class="fa fa-info"></i></span>
-                    <input type="text" name="address" id="address" />
-                    <div class="validation"></div>
-                    <span class="form-message"></span>
-                </div>
-        </div>
-        
-        </div>
-
-
-    <button id="create-user" type="submit" class="bouton-contact">Create</button>
-    
-    </form>	
-
-    <!-- LIST CUSTOMER -->
-
-    <!-- 
-     The `defer` attribute causes the callback to execute after the full HTML
-     document has been parsed. For non-blocking uses, avoiding race conditions,
-     and consistent behavior across browsers, consider loading using Promises
-     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
-    -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC_JG5KwlsKmWsnUmsl3ho93iupYjB9rlk&callback=initMap&v=weekly"
-      defer
-    ></script>
-  </div>
-
-  <script type="text/javascript">
-    var modaldriver = document.getElementById("modalDriver")
-    var span = document.getElementsByClassName("closeModal")[0]
-
-    function showDriver() {
-       modaldriver.style.display = "block";
-//  var btn = document.getElementsByClassName("fullname")
-    }
-
-    span.onclick = function() {
-    modaldriver.style.display = "none";
+   
+    /* padding: 10px; */
   }
   
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == modaldriver) {
-      modaldriver.style.display = "none";
-    }
-  }
+  </style>
+<script>
+        let navigation = document.querySelector('.navigation');
+        let toggle = document.querySelector('.toggle');
+        var map = document.getElementById("map");
+        let searchNode = document.querySelector('.search-box');
+        let searchDepot = document.querySelector('.search-box1');
+        let drawBtn = document.querySelector('.search-box2')
+        let comboBoxCar = document.querySelector('.cars')
+        toggle.onclick = function(){
+            navigation.classList.toggle('active')
+            map.classList.toggle('responsive')
+            searchNode.classList.toggle('active')
+            searchDepot.classList.toggle('active')
+            drawBtn.classList.toggle('active')
+            comboBoxCar.classList.toggle('active')
+        }
+</script>
 
-  </script>
+<script
+src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC1wesRRrSSh0aRM7dDcdGQyuGPY5nuXBE&callback=initMap&v=weekly"
+defer
+></script>
+</script>
+<div class="loader-wrapper">
+  <div class="truckloader"><div class="truckloader-cab"></div></div>
+  
+</span></span>
+</div>
 
-
-  </body>
-  <!-- <div class="footer">
-    <div class="instruction-container">
-     <h1> Instruction </h1>
-     <p>Step 1: </p>
-    </div>
-    <div class="info-us">
-      <h1>About Us</h1>
-    </div>
-  </div> -->
-
-
- 
+<script>
+  $(window).on("load",function(){
+    $(".loader-wrapper").fadeOut(4000);
+  });
+</script>
+</body>
 </html>

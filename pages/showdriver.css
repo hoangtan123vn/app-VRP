@@ -1,0 +1,149 @@
+#modalDriver {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content1 {
+    margin: 50px auto;
+    border: 1px solid rgb(15, 12, 12);
+    width: 70%;
+    background-color: #287bff;
+  }
+  
+  /* The Close Button */
+  .closeModal {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .closeModal:hover,
+  .closeModal:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  #table-driver > a:hover,
+  #table-driver > a:focus{
+  }
+
+
+  #modalListNodes{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  .closeModal1 {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .closeModal1:hover,
+  .closeModal1:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .modal-content2 {
+    margin: 50px auto;
+    border: 1px solid rgb(15, 12, 12);
+    width: 50%;
+    background-color: #287bff;
+  }
+
+  #nameuser{
+    font-family: Mukta, sans-serif;
+    font-size: 20px;
+    margin-left: 47px;
+    margin-top: 15px;
+    width: 300px;
+    color: white;
+  }
+
+  #modalListNodes2{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  .modal-content3 {
+    margin: 50px auto;
+    border: 1px solid rgb(15, 12, 12);
+    width: 30%;
+    background-color: #287bff;
+  }
+
+
+  .closeModal2 {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .closeModal2:hover,
+  .closeModal2:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  #name_vehicle{
+    margin-left: 50px;
+    margin-top: 25px;
+    color: black;
+  }
+  #capacity{
+    margin-left: 50px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
+  #name_vehicle::placeholder,
+  #capacity::placeholder{
+    color: black;
+  }
+  
+  #add-driver-type{
+    background-color:white;
+    color: black;
+    border:none;
+    border-radius:10px;
+    width: 100px;
+    height: 50px;
+    margin-left: 225px;
+    margin-bottom: 25px;
+    cursor: pointer;
+
+  }

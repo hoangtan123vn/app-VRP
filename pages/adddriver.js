@@ -101,49 +101,12 @@ Validator.isPhone = function (selector) {
 }
 }
 
-// Hình
-// function show(input) {
-//     debugger;
-//     var validExtensions = ['jpg','png','jpeg']; //array of valid extensions
-//     var fileName = input.files[0].name;
-//     var fileNameExt = fileName.substr(fileName.lastIndexOf('.') + 1);
-//     if ($.inArray(fileNameExt, validExtensions) == -1) {
-//         input.type = ''
-//         input.type = 'file'
-//         $('#user_img').attr('src',"");
-//         alert("Only these file types are accepted : "+validExtensions.join(', '));
-//     }
-//     else
-//     {
-//     if (input.files && input.files[0]) {
-//         var filerdr = new FileReader();
-//         filerdr.onload = function (e) {
-//             $('#user_img').attr('src', e.target.result);
-//         }
-//         filerdr.readAsDataURL(input.files[0]);
-//     }
-//     }
-// }
-// function isValidPhoto(fileName)
-// {
-//     var allowed_extensions = new Array("jpg","png");
-//     var file_extension = fileName.split('.').pop().toLowerCase(); 
-
-//     for(var i = 0; i <= allowed_extensions.length; i++)
-//     {
-//         if(allowed_extensions[i] == file_extension)
-//         {
-//             return true; // valid file extension
-//         }
-//     }
-
-//     return false;
-// }
 let modalBtns = [...document.querySelectorAll(".button1")];
 modalBtns.forEach(function (btn) {
   btn.onclick = function () {
     let modal = btn.getAttribute("data-modal");
     document.getElementById(modal).style.display = "block";
+    FetchDropDown();
   };
 });
 let closeBtns = [...document.querySelectorAll(".close")];
@@ -158,6 +121,7 @@ window.onclick = function (event) {
     event.target.style.display = "none";
   }
 };
+
 
 Validator({
     form: '#form-1',
@@ -183,12 +147,16 @@ function RegisterUser(){
     console.log(password)
     var select = document.getElementById("vehicle");
     var option = select.options[select.selectedIndex];
-    var Capacity = option.id;
+    var name_type = select.options[select.selectedIndex].text;
+    var Capacity = option.value;
+    var id_type = option.id;
     const fullname = document.getElementById('fullname').value;
     const age = document.getElementById('age').value;
     const phonenumber = document.getElementById('phone').value;
     const address = document.getElementById('address').value;
-    const vehicle = {id_vehicle : Capacity}
+    const vehicleType = {id_type : id_type,name_type : name_type,capacity : Capacity}
+    const vehicle = {cost: 0,loading :0,status : 0,vehicleType}
+    console.log(vehicle)
     axios.post("http://localhost:2711/api/auth/register",{
     username,
     password,
@@ -210,7 +178,34 @@ function RegisterUser(){
             icon: "success",
           });
       })
-    }
+}
+
+function FetchDropDown(){
+    var List = []
+    const token = localStorage.getItem('accessToken')
+    var selector = document.getElementById('vehicle')
+    selector.innerHTML=""
+    axios.get("http://localhost:2711/api/auth/GetVehiclesType",{
+        headers:{
+            'Authorization': `Bearer ${token}`
+        }
+      }).then(responseData =>{
+        for(let i=0;i<responseData.data.length;i++){
+          var id_type = responseData.data[i].id_type;
+          var name_type = responseData.data[i].name_type;
+          var capacity = responseData.data[i].capacity;
+          List.push(responseData.data[i])
+        }
+        List.forEach(function(item){
+          var option = document.createElement('option');
+          option.id = item.id_type
+          option.value = item.capacity;
+          option.innerHTML = item.name_type;
+          selector.appendChild(option)
+       })
+      })
+      
+  }
 
 
 document.getElementById("create-user").addEventListener("click",RegisterUser) 
